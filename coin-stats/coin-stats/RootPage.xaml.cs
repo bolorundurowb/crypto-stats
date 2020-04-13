@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace coin_stats
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomePage : ContentPage
+    public partial class RootPage : TabbedPage
     {
-        public HomePage()
+        public RootPage()
         {
             InitializeComponent();
         }

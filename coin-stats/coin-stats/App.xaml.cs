@@ -11,7 +11,7 @@ namespace coin_stats
         {
             InitializeComponent();
 
-            MainPage = new HomePage();
+            MainPage = new RootPage();
         }
 
         protected override void OnStart()
