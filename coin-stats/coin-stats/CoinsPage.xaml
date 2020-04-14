@@ -19,7 +19,8 @@
                 HeightRequest="40"
                 Placeholder="Search"
                 TextColor="#F1F1F1"
-                BackgroundColor="#2E2E30" />
+                BackgroundColor="#2E2E30"
+                TextChanged="SearchStats"/>
 
             <ActivityIndicator x:Name="prgLoading"
                                HorizontalOptions="Center"
