@@ -28,7 +28,7 @@
                                IsRunning="True"
                                IsVisible="True"
                                BackgroundColor="Transparent"
-                               Color="#E19832"/>
+                               Color="#E19832" />
 
             <ListView x:Name="lstCryptoStats"
                       HorizontalOptions="Fill"
@@ -36,7 +36,38 @@
                       BackgroundColor="Transparent"
                       IsPullToRefreshEnabled="True"
                       SelectionMode="None"
-                      IsVisible="False" />
+                      IsVisible="False">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout
+                            Orientation="Horizontal"
+                            HorizontalOptions="FillAndExpand">
+                            <StackLayout
+                                Orientation="Vertical">
+                                <StackLayout
+                                    Orientation="Horizontal">
+                                    <Label
+                                        Text="{Binding Rank}" />
+                                    <Label
+                                        Text="{Binding Symbol}" />
+                                </StackLayout>
+
+                                <Label
+                                    Text="{Binding Name}" />
+                            </StackLayout>
+
+                            <Label
+                                Text="{Binding PriceUsd, StringFormat='{0:N}'}"
+                                TextColor="White" />
+
+                            <Label
+                                Text="{Binding ChangePercent24Hr, StringFormat='{0:N} %'}"
+                                TextColor="{Binding LastDayColor}" />
+                            <StackLayout />
+                        </StackLayout>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
