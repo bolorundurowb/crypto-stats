@@ -37,7 +37,8 @@
                       IsPullToRefreshEnabled="True"
                       SelectionMode="None"
                       HasUnevenRows="True"
-                      IsVisible="False">
+                      IsVisible="False"
+                      Refreshing="OnRefresh">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
