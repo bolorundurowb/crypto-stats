@@ -14,8 +14,4 @@
         <PackageReference Include="System.Text.Json" Version="4.7.1" />
         <PackageReference Include="Xamarin.Forms" Version="4.5.0.617" />
     </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Services" />
-    </ItemGroup>
 </Project>
