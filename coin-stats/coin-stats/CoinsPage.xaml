@@ -36,35 +36,51 @@
                       BackgroundColor="Transparent"
                       IsPullToRefreshEnabled="True"
                       SelectionMode="None"
+                      HasUnevenRows="True"
                       IsVisible="False">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout
-                            Orientation="Horizontal"
-                            HorizontalOptions="FillAndExpand">
+                        <ViewCell>
                             <StackLayout
-                                Orientation="Vertical">
+                                Orientation="Horizontal"
+                                HorizontalOptions="FillAndExpand"
+                                Padding="0, 10, 0, 10">
                                 <StackLayout
-                                    Orientation="Horizontal">
+                                    Orientation="Vertical"
+                                    HorizontalOptions="FillAndExpand">
+                                    <StackLayout
+                                        Orientation="Horizontal">
+                                        <Label
+                                            Text="{Binding Rank}"
+                                            TextColor="#6A6A6A"
+                                            VerticalOptions="End" />
+                                        <Label
+                                            Text="{Binding Symbol}"
+                                            TextColor="White"
+                                            FontSize="20" />
+                                    </StackLayout>
+
                                     <Label
-                                        Text="{Binding Rank}" />
-                                    <Label
-                                        Text="{Binding Symbol}" />
+                                        Text="{Binding Name}"
+                                        TextColor="#6A6A6A" />
                                 </StackLayout>
 
                                 <Label
-                                    Text="{Binding Name}" />
+                                    Text="{Binding PriceInUsd, StringFormat='{0:N}'}"
+                                    TextColor="White"
+                                    HorizontalOptions="EndAndExpand"
+                                    VerticalOptions="Center"
+                                    FontSize="20" />
+
+                                <Label
+                                    Text="{Binding LastDayChange, StringFormat='{0:N}%'}"
+                                    TextColor="{Binding LastDayColor}"
+                                    HorizontalOptions="EndAndExpand"
+                                    VerticalOptions="Center"
+                                    FontSize="20" />
+                                <StackLayout />
                             </StackLayout>
-
-                            <Label
-                                Text="{Binding PriceUsd, StringFormat='{0:N}'}"
-                                TextColor="White" />
-
-                            <Label
-                                Text="{Binding ChangePercent24Hr, StringFormat='{0:N} %'}"
-                                TextColor="{Binding LastDayColor}" />
-                            <StackLayout />
-                        </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
