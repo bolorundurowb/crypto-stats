@@ -20,5 +20,7 @@ namespace coin_stats.Services
             var response = await Client.GetStreamAsync(ApiUrl);
             return await JsonSerializer.DeserializeAsync<Coins>(response, DeserializerOptions);
         }
+        
+        public async 
     }
 }

@@ -4,7 +4,7 @@ using Android.OS;
 
 namespace coin_stats.Android
 {
-    [Activity(Label = "coin_stats", Theme = "@style/MainTheme", MainLauncher = true,
+    [Activity(Label = "Crypto Stats", Theme = "@style/MainTheme", MainLauncher = true,
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
