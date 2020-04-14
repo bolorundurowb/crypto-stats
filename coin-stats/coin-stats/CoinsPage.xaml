@@ -21,10 +21,22 @@
                 TextColor="#F1F1F1"
                 BackgroundColor="#2E2E30" />
 
-            <ListView
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand"
-                BackgroundColor="Transparent" />
+            <ActivityIndicator x:Name="prgLoading"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand"
+                               IsEnabled="True"
+                               IsRunning="True"
+                               IsVisible="True"
+                               BackgroundColor="Transparent"
+                               Color="#E19832"/>
+
+            <ListView x:Name="lstCryptoStats"
+                      HorizontalOptions="Fill"
+                      VerticalOptions="FillAndExpand"
+                      BackgroundColor="Transparent"
+                      IsPullToRefreshEnabled="True"
+                      SelectionMode="None"
+                      IsVisible="False" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
