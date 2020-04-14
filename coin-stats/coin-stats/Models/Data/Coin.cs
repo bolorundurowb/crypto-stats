@@ -10,8 +10,8 @@
         
         public string Name { get; set; }
 
-        public decimal PriceUsd { get; set; }
+        public string PriceUsd { get; set; }
 
-        public double ChangePercent24Hr { get; set; }
+        public string ChangePercent24Hr { get; set; }
     }
 }
