@@ -10,7 +10,7 @@
             <Label
                 Text="Crypto Stats"
                 FontSize="45"
-                TextColor="White"
+                TextColor="#E19832"
                 FontAttributes="Bold" />
 
             <SearchBar
@@ -18,7 +18,7 @@
                 HorizontalOptions="FillAndExpand"
                 HeightRequest="40"
                 Placeholder="Search"
-                TextColor="#A6A6AC"
+                TextColor="#F1F1F1"
                 BackgroundColor="#2E2E30" />
 
             <ListView
