@@ -24,7 +24,6 @@ namespace coin_stats
         protected override async void OnAppearing()
         {
             await LoadData();
-            BindDataToUI();
             prgLoading.IsVisible = false;
             lstCryptoStats.IsVisible = true;
         }
@@ -32,19 +31,15 @@ namespace coin_stats
         protected async void OnRefresh(object sender, EventArgs e)
         {
             await LoadData();
-            BindDataToUI();
+            
+            
             lstCryptoStats.IsRefreshing = false;
         }
 
         protected void SearchStats(object sender, TextChangedEventArgs e)
         {
             var search = e.NewTextValue.ToLowerInvariant();
-            _filteredCryptoStats = _cryptoStats
-                .Where(x => x.Id.ToLowerInvariant().Contains(search)
-                            || x.Symbol.ToLowerInvariant().Contains(search)
-                            || x.Name.ToLowerInvariant().Contains(search))
-                .ToList();
-            BindDataToUI();
+            SearchData(search);
         }
 
         private async Task LoadData()
@@ -52,6 +47,17 @@ namespace coin_stats
             var coins = await _service.GetAllStats();
             _cryptoStats = coins.Data;
             _filteredCryptoStats = coins.Data;
+            BindDataToUI();
+        }
+
+        private void SearchData(string query)
+        {
+            _filteredCryptoStats = _cryptoStats
+                .Where(x => x.Id.ToLowerInvariant().Contains(query)
+                            || x.Symbol.ToLowerInvariant().Contains(query)
+                            || x.Name.ToLowerInvariant().Contains(query))
+                .ToList();
+            BindDataToUI();
         }
 
         private void BindDataToUI()

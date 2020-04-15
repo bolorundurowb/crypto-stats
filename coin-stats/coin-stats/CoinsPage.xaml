@@ -13,7 +13,7 @@
                 TextColor="#E19832"
                 FontAttributes="Bold" />
 
-            <SearchBar
+            <SearchBar x:Name="txtSearch"
                 Margin="0, 10, 0, 10"
                 HorizontalOptions="FillAndExpand"
                 HeightRequest="40"
