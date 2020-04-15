@@ -31,8 +31,13 @@ namespace coin_stats
         protected async void OnRefresh(object sender, EventArgs e)
         {
             await LoadData();
-            
-            
+
+            var search = txtSearch.Text?.ToLowerInvariant();
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                SearchData(search);
+            }
+
             lstCryptoStats.IsRefreshing = false;
         }
 
