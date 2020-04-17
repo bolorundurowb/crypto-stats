@@ -47,6 +47,12 @@ namespace coin_stats.Views
             SearchData(search);
         }
 
+        protected async void ViewCoinDetails(object sender, ItemTappedEventArgs e)
+        {
+            var coin = e.Item as Coin;
+            await Navigation.PushAsync(new CoinDetailsPage(coin));
+        }
+
         private async Task LoadData()
         {
             var coins = await _service.GetAllStats();
@@ -68,6 +74,11 @@ namespace coin_stats.Views
         private void BindDataToUI()
         {
             lstCryptoStats.ItemsSource = _filteredCryptoStats;
+        }
+
+        private void LstCryptoStats_OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

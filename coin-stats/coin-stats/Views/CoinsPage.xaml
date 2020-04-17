@@ -39,7 +39,8 @@
                       SelectionMode="None"
                       HasUnevenRows="True"
                       IsVisible="False"
-                      Refreshing="OnRefresh">
+                      Refreshing="OnRefresh"
+                      ItemTapped="ViewCoinDetails">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
