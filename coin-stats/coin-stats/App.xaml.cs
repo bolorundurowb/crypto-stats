@@ -12,7 +12,7 @@ namespace coin_stats
         {
             InitializeComponent();
 
-            MainPage = new CoinsPage();
+            MainPage = new NavigationPage(new CoinsPage());
         }
 
         protected override void OnStart()

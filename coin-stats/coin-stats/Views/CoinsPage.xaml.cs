@@ -75,10 +75,5 @@ namespace coin_stats.Views
         {
             lstCryptoStats.ItemsSource = _filteredCryptoStats;
         }
-
-        private void LstCryptoStats_OnItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
