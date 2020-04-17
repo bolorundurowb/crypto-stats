@@ -11,6 +11,16 @@ namespace coin_stats.Models.Data
 
         public string Symbol { get; set; }
 
+        public string MaxSupply { get; set; }
+
+        public string Supply { get; set; }
+
+        public string MarketCapUsd { get; set; }
+
+        public string VolumeUsd24Hr { get; set; }
+        
+        public string vWap24Hr { get; set; }
+
         public string Name { get; set; }
 
         public string PriceUsd { get; set; }

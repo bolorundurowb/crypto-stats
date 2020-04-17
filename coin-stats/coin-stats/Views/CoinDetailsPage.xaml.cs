@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using coin_stats.Models.Data;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,9 +7,12 @@ namespace coin_stats.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CoinDetailsPage : ContentPage
     {
-        public CoinDetailsPage()
+        private readonly Coin _coin;
+        
+        public CoinDetailsPage(Coin coin)
         {
             InitializeComponent();
+            _coin = coin;
         }
     }
 }
