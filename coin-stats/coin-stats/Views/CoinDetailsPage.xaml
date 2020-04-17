@@ -2,6 +2,7 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              x:Class="coin_stats.Views.CoinDetailsPage"
              Title="Details"
              BackgroundColor="Black"
@@ -158,18 +159,32 @@
                     </StackLayout>
                 </Grid>
 
-                <StackLayout
+                <Label
                     Margin="0, 15, 0, 0"
-                    HorizontalOptions="FillAndExpand">
-                    <Label
-                        TextColor="#E19832"
-                        Text="VOLUME WEIGHTED PRICE (USD, 24HRS)" />
-                    <Label
-                        Margin="0, 10, 0, 0"
-                        TextColor="#FAFAFA"
-                        Text="{Binding VolumeWeightedAveragePriceLastTwentyFourHours, StringFormat='${0:N}'}"
-                        FontSize="18" />
-                </StackLayout>
+                    TextColor="#E19832"
+                    Text="VOLUME WEIGHTED PRICE (USD, 24HRS)" />
+                <Label
+                    Margin="0, 10, 0, 0"
+                    TextColor="#FAFAFA"
+                    Text="{Binding VolumeWeightedAveragePriceLastTwentyFourHours, StringFormat='${0:N}'}"
+                    FontSize="18" />
+
+                <Label
+                    Margin="0, 15, 0, 0"
+                    TextColor="#E19832"
+                    Text="PERFORMANCE (LAST 15MIN)" />
+
+                <ActivityIndicator x:Name="prgLoadingChart"
+                                   IsRunning="True"
+                                   WidthRequest="40"
+                                   HeightRequest="40"
+                                   HorizontalOptions="Center"
+                                   Margin="0, 40, 0, 0" />
+
+                <microcharts:ChartView x:Name="chrtTrend"
+                                       Margin="0, 10, 0, 0"
+                                       IsVisible="False"
+                                       HeightRequest="150" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
