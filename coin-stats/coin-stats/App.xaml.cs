@@ -12,7 +12,10 @@ namespace coin_stats
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new CoinsPage());
+            MainPage = new NavigationPage(new CoinsPage())
+            {
+                BarTextColor = Color.FromHex("#E19832")
+            };
         }
 
         protected override void OnStart()

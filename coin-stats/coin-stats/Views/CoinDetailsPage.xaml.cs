@@ -14,5 +14,10 @@ namespace coin_stats.Views
             InitializeComponent();
             _coin = coin;
         }
+
+        protected override void OnAppearing()
+        {
+            BindingContext = _coin;
+        }
     }
 }

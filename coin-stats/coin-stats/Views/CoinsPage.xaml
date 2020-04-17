@@ -77,7 +77,7 @@
                                     FontSize="20" />
 
                                 <Label
-                                    Text="{Binding TwentyFourHourPercentageChange, StringFormat='{0:N}%'}"
+                                    Text="{Binding TwentyFourHourPercentageChange, StringFormat='{0:+0.##;-0.##;+#.##;-#.##;0}%'}"
                                     TextColor="{Binding TwentyFourHourChangeColour}"
                                     HorizontalOptions="EndAndExpand"
                                     VerticalOptions="Center"
