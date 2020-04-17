@@ -7,7 +7,7 @@ using coin_stats.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace coin_stats
+namespace coin_stats.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CoinsPage : ContentPage
@@ -45,6 +45,12 @@ namespace coin_stats
         {
             var search = e.NewTextValue.ToLowerInvariant();
             SearchData(search);
+        }
+
+        protected async void ViewCoinDetails(object sender, ItemTappedEventArgs e)
+        {
+            var coin = e.Item as Coin;
+            await Navigation.PushAsync(new CoinDetailsPage(coin));
         }
 
         private async Task LoadData()

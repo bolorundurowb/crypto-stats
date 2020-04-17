@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using coin_stats.Views;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -11,7 +12,10 @@ namespace coin_stats
         {
             InitializeComponent();
 
-            MainPage = new CoinsPage();
+            MainPage = new NavigationPage(new CoinsPage())
+            {
+                BarTextColor = Color.FromHex("#E19832")
+            };
         }
 
         protected override void OnStart()

@@ -1,5 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace coin_stats.Models.Data
 {
@@ -10,6 +9,16 @@ namespace coin_stats.Models.Data
         public string Rank { get; set; }
 
         public string Symbol { get; set; }
+
+        public string MaxSupply { get; set; }
+
+        public string Supply { get; set; }
+
+        public string MarketCapUsd { get; set; }
+
+        public string VolumeUsd24Hr { get; set; }
+
+        public string VWap24Hr { get; set; }
 
         public string Name { get; set; }
 
@@ -22,34 +31,74 @@ namespace coin_stats.Models.Data
             get
             {
                 decimal.TryParse(PriceUsd, out var price);
-                return Math.Round(price, 2);
+                return price;
             }
         }
 
-        public double LastDayChange
+        public decimal TwentyFourHourPercentageChange
         {
             get
             {
-                double.TryParse(ChangePercent24Hr, out var change);
-                return Math.Round(change, 2);
+                decimal.TryParse(ChangePercent24Hr, out var change);
+                return change;
             }
         }
 
-        public Color LastDayColor
+        public Color TwentyFourHourChangeColour
         {
             get
             {
-                if (LastDayChange < 0)
+                if (TwentyFourHourPercentageChange < 0)
                 {
                     return Color.Red;
                 }
 
-                if (LastDayChange > 0)
-                {
-                    return Color.Green;
-                }
+                return TwentyFourHourPercentageChange > 0 ? Color.Green : Color.White;
+            }
+        }
 
-                return Color.White;
+        public decimal MaxCoinSupply
+        {
+            get
+            {
+                decimal.TryParse(MaxSupply, out var supply);
+                return supply;
+            }
+        }
+
+        public decimal TotalCoinSupply
+        {
+            get
+            {
+                decimal.TryParse(Supply, out var supply);
+                return supply;
+            }
+        }
+
+        public decimal MarketCapInUsd
+        {
+            get
+            {
+                decimal.TryParse(MarketCapUsd, out var marketCap);
+                return marketCap;
+            }
+        }
+
+        public decimal VolumeTradedLastTwentyFourHours
+        {
+            get
+            {
+                decimal.TryParse(VolumeUsd24Hr, out var volumeTraded);
+                return volumeTraded;
+            }
+        }
+
+        public decimal VolumeWeightedAveragePriceLastTwentyFourHours
+        {
+            get
+            {
+                decimal.TryParse(VWap24Hr, out var vwap);
+                return vwap;
             }
         }
     }

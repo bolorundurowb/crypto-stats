@@ -23,6 +23,12 @@ namespace coin_stats.Services
 
         public async Task<History> GetHistory(string id)
         {
+            var response = await Client.GetStreamAsync($"https://api.coincap.io/v2/assets/{id}/history?interval=m5");
+            return await JsonSerializer.DeserializeAsync<History>(response, DeserializerOptions);
+        }
+
+        public async Task<History> GetExtendedHistory(string id)
+        {
             var response = await Client.GetStreamAsync($"https://api.coincap.io/v2/assets/{id}/history?interval=m15");
             return await JsonSerializer.DeserializeAsync<History>(response, DeserializerOptions);
         }

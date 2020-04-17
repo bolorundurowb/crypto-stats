@@ -2,9 +2,10 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="coin_stats.CoinsPage"
+             x:Class="coin_stats.Views.CoinsPage"
              BackgroundColor="Black"
-             Padding="20">
+             Padding="20"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
             <Label
@@ -14,13 +15,13 @@
                 FontAttributes="Bold" />
 
             <SearchBar x:Name="txtSearch"
-                Margin="0, 10, 0, 10"
-                HorizontalOptions="FillAndExpand"
-                HeightRequest="40"
-                Placeholder="Search"
-                TextColor="#F1F1F1"
-                BackgroundColor="#2E2E30"
-                TextChanged="SearchStats"/>
+                       Margin="0, 10, 0, 10"
+                       HorizontalOptions="FillAndExpand"
+                       HeightRequest="40"
+                       Placeholder="Search"
+                       TextColor="#F1F1F1"
+                       BackgroundColor="#2E2E30"
+                       TextChanged="SearchStats" />
 
             <ActivityIndicator x:Name="prgLoading"
                                HorizontalOptions="Center"
@@ -39,7 +40,8 @@
                       SelectionMode="None"
                       HasUnevenRows="True"
                       IsVisible="False"
-                      Refreshing="OnRefresh">
+                      Refreshing="OnRefresh"
+                      ItemTapped="ViewCoinDetails">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -68,18 +70,18 @@
                                 </StackLayout>
 
                                 <Label
-                                    Text="{Binding PriceInUsd, StringFormat='{0:N}'}"
+                                    Text="{Binding PriceInUsd, StringFormat='${0:N}'}"
                                     TextColor="White"
                                     HorizontalOptions="EndAndExpand"
                                     VerticalOptions="Center"
-                                    FontSize="20" />
+                                    FontSize="19" />
 
                                 <Label
-                                    Text="{Binding LastDayChange, StringFormat='{0:N}%'}"
-                                    TextColor="{Binding LastDayColor}"
+                                    Text="{Binding TwentyFourHourPercentageChange, StringFormat='{0:+0.##;-0.##;+#.##;-#.##;0}%'}"
+                                    TextColor="{Binding TwentyFourHourChangeColour}"
                                     HorizontalOptions="EndAndExpand"
                                     VerticalOptions="Center"
-                                    FontSize="20" />
+                                    FontSize="19" />
                                 <StackLayout />
                             </StackLayout>
                         </ViewCell>

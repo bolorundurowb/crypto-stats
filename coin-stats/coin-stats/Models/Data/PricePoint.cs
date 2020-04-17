@@ -4,6 +4,6 @@
     {
         public string PriceUsd { get; set; }
 
-        public int Time { get; set; }
+        public long Time { get; set; }
     }
 }
