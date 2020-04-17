@@ -68,15 +68,15 @@
                                 </StackLayout>
 
                                 <Label
-                                    Text="{Binding PriceInUsd, StringFormat='{0:N}'}"
+                                    Text="{Binding PriceInUsd, StringFormat='${0:N}'}"
                                     TextColor="White"
                                     HorizontalOptions="EndAndExpand"
                                     VerticalOptions="Center"
                                     FontSize="20" />
 
                                 <Label
-                                    Text="{Binding LastDayChange, StringFormat='{0:N}%'}"
-                                    TextColor="{Binding LastDayColor}"
+                                    Text="{Binding TwentyFourHourPercentageChange, StringFormat='{0:N}%'}"
+                                    TextColor="{Binding TwentyFourHourChangeColour}"
                                     HorizontalOptions="EndAndExpand"
                                     VerticalOptions="Center"
                                     FontSize="20" />
