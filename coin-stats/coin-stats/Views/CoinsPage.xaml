@@ -74,14 +74,14 @@
                                     TextColor="White"
                                     HorizontalOptions="EndAndExpand"
                                     VerticalOptions="Center"
-                                    FontSize="20" />
+                                    FontSize="19" />
 
                                 <Label
                                     Text="{Binding TwentyFourHourPercentageChange, StringFormat='{0:+0.##;-0.##;+#.##;-#.##;0}%'}"
                                     TextColor="{Binding TwentyFourHourChangeColour}"
                                     HorizontalOptions="EndAndExpand"
                                     VerticalOptions="Center"
-                                    FontSize="20" />
+                                    FontSize="19" />
                                 <StackLayout />
                             </StackLayout>
                         </ViewCell>
