@@ -7,7 +7,7 @@ using coin_stats.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace coin_stats
+namespace coin_stats.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CoinsPage : ContentPage
