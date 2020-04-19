@@ -74,6 +74,7 @@
                                     TextColor="White"
                                     HorizontalOptions="EndAndExpand"
                                     VerticalOptions="Center"
+                                    HorizontalTextAlignment="End"
                                     FontSize="19" />
 
                                 <Label
@@ -81,6 +82,7 @@
                                     TextColor="{Binding TwentyFourHourChangeColour}"
                                     HorizontalOptions="EndAndExpand"
                                     VerticalOptions="Center"
+                                    HorizontalTextAlignment="End"
                                     FontSize="19" />
                                 <StackLayout />
                             </StackLayout>
