@@ -2,6 +2,7 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              x:Class="coin_stats.Views.CoinsPage"
              BackgroundColor="Black"
              Padding="20"
@@ -56,6 +57,7 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <StackLayout
                                     Grid.Row="0"
@@ -79,25 +81,28 @@
                                         TextColor="#6A6A6A" />
                                 </StackLayout>
 
-                                <Label
+                                <microcharts:ChartView
                                     Grid.Row="0"
                                     Grid.Column="1"
-                                    Text="{Binding PriceInUsd, StringFormat='${0:N}'}"
-                                    TextColor="White"
-                                    HorizontalOptions="EndAndExpand"
-                                    VerticalOptions="Center"
-                                    HorizontalTextAlignment="End"
-                                    FontSize="19" />
+                                    HeightRequest="50"/>
 
                                 <Label
                                     Grid.Row="0"
                                     Grid.Column="2"
-                                    Text="{Binding TwentyFourHourPercentageChange, StringFormat='{0:+0.##;-0.##;+#.##;-#.##;0}%'}"
-                                    TextColor="{Binding TwentyFourHourChangeColour}"
-                                    HorizontalOptions="EndAndExpand"
+                                    Text="{Binding PriceInUsd, StringFormat='${0:N}'}"
+                                    TextColor="White"
                                     VerticalOptions="Center"
                                     HorizontalTextAlignment="End"
-                                    FontSize="19" />
+                                    FontSize="18" />
+
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="3"
+                                    Text="{Binding TwentyFourHourPercentageChange, StringFormat='{0:+0.##;-0.##;+#.##;-#.##;0}%'}"
+                                    TextColor="{Binding TwentyFourHourChangeColour}"
+                                    VerticalOptions="Center"
+                                    HorizontalTextAlignment="End"
+                                    FontSize="18" />
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
