@@ -18,7 +18,7 @@ namespace coin_stats.Android
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
 
-            // set bottom bar
+            // set bottom bar colour
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
             {
                 Window.SetNavigationBarColor(Color.Black);
