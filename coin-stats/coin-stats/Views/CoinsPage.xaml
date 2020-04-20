@@ -20,7 +20,6 @@
                        HorizontalOptions="FillAndExpand"
                        HeightRequest="40"
                        Placeholder="Search"
-                       TextColor="#F6F6F6"
                        BackgroundColor="#2E2E30"
                        TextChanged="SearchStats" />
 
