@@ -53,7 +53,7 @@ namespace coin_stats.Models.Data
                     return Color.Red;
                 }
 
-                return TwentyFourHourPercentageChange > 0 ? Color.Green : Color.White;
+                return TwentyFourHourPercentageChange > 0 ? Color.FromHex("#0EDD7B") : Color.White;
             }
         }
 
