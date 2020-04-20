@@ -32,14 +32,15 @@ namespace coin_stats.Views
                     float.TryParse(x.PriceUsd, out var price);
                     return new Microcharts.Entry(price)
                     {
-                        Color = SKColor.Parse("#0EDD7B")
+                        Color = SKColor.Parse(Constants.PositiveColour)
                     };
                 })
                 .ToArray();
+
             var chart = new LineChart
             {
                 Entries = entries,
-                BackgroundColor = SKColor.Parse("#000000"),
+                BackgroundColor = SKColor.Parse(Constants.BackgroundColour),
                 LineSize = 6,
                 PointSize = 10
             };
