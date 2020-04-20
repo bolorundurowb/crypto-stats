@@ -50,7 +50,7 @@ namespace coin_stats.Models.Data
             {
                 if (TwentyFourHourPercentageChange < 0)
                 {
-                    return Color.Red;
+                    return Color.FromHex("#DC4035");
                 }
 
                 return TwentyFourHourPercentageChange > 0 ? Color.FromHex("#0EDD7B") : Color.White;
