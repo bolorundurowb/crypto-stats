@@ -27,9 +27,14 @@ namespace coin_stats.Views
             // pull and display chart
             var extendedHistory = await _service.GetExtendedHistory(_coin.Id);
             var entries = extendedHistory.OrderedData
-                .Select(x =>
+                .Select((x, i) =>
                 {
                     float.TryParse(x.PriceUsd, out var price);
+                    var colour = SKColor.Parse(Constants.PositiveColour);
+                    if (i > 0)
+                    {
+                    }
+
                     return new Microcharts.Entry(price)
                     {
                         Color = SKColor.Parse(Constants.PositiveColour)
