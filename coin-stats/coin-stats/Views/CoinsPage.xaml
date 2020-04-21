@@ -2,7 +2,6 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              x:Class="coin_stats.Views.CoinsPage"
              BackgroundColor="Black"
              Padding="20"
@@ -53,8 +52,7 @@
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="2*" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
@@ -66,30 +64,24 @@
                                     <StackLayout
                                         Orientation="Horizontal">
                                         <Label
-                                            Text="{Binding Coin.Rank}"
+                                            Text="{Binding Rank}"
                                             TextColor="#6A6A6A"
                                             VerticalOptions="End" />
                                         <Label
-                                            Text="{Binding Coin.Symbol}"
+                                            Text="{Binding Symbol}"
                                             TextColor="White"
                                             FontSize="20" />
                                     </StackLayout>
 
                                     <Label
-                                        Text="{Binding Coin.Name}"
+                                        Text="{Binding Name}"
                                         TextColor="#6A6A6A" />
                                 </StackLayout>
 
-                                <microcharts:ChartView
-                                    Grid.Row="0"
-                                    Grid.Column="1"
-                                    HeightRequest="50"
-                                    Chart="{Binding History}"/>
-
                                 <Label
                                     Grid.Row="0"
-                                    Grid.Column="2"
-                                    Text="{Binding Coin.PriceInUsd, StringFormat='${0:N}'}"
+                                    Grid.Column="1"
+                                    Text="{Binding PriceInUsd, StringFormat='${0:N}'}"
                                     TextColor="White"
                                     VerticalOptions="Center"
                                     HorizontalTextAlignment="End"
@@ -97,9 +89,9 @@
 
                                 <Label
                                     Grid.Row="0"
-                                    Grid.Column="3"
-                                    Text="{Binding Coin.TwentyFourHourPercentageChange, StringFormat='{0:+0.##;-0.##;+#.##;-#.##;0}%'}"
-                                    TextColor="{Binding Coin.TwentyFourHourChangeColour}"
+                                    Grid.Column="2"
+                                    Text="{Binding TwentyFourHourPercentageChange, StringFormat='{0:+0.##;-0.##;+#.##;-#.##;0}%'}"
+                                    TextColor="{Binding TwentyFourHourChangeColour}"
                                     VerticalOptions="Center"
                                     HorizontalTextAlignment="End"
                                     FontSize="18" />
