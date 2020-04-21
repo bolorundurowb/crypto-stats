@@ -2,7 +2,6 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              x:Class="coin_stats.Views.CoinsPage"
              BackgroundColor="Black"
              Padding="20"
@@ -20,7 +19,6 @@
                        HorizontalOptions="FillAndExpand"
                        HeightRequest="40"
                        Placeholder="Search"
-                       TextColor="#F6F6F6"
                        BackgroundColor="#2E2E30"
                        TextChanged="SearchStats" />
 
@@ -54,8 +52,7 @@
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="2*" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
@@ -81,14 +78,9 @@
                                         TextColor="#6A6A6A" />
                                 </StackLayout>
 
-                                <microcharts:ChartView
-                                    Grid.Row="0"
-                                    Grid.Column="1"
-                                    HeightRequest="50"/>
-
                                 <Label
                                     Grid.Row="0"
-                                    Grid.Column="2"
+                                    Grid.Column="1"
                                     Text="{Binding PriceInUsd, StringFormat='${0:N}'}"
                                     TextColor="White"
                                     VerticalOptions="Center"
@@ -97,7 +89,7 @@
 
                                 <Label
                                     Grid.Row="0"
-                                    Grid.Column="3"
+                                    Grid.Column="2"
                                     Text="{Binding TwentyFourHourPercentageChange, StringFormat='{0:+0.##;-0.##;+#.##;-#.##;0}%'}"
                                     TextColor="{Binding TwentyFourHourChangeColour}"
                                     VerticalOptions="Center"
