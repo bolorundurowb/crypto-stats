@@ -66,29 +66,29 @@
                                     <StackLayout
                                         Orientation="Horizontal">
                                         <Label
-                                            Text="{Binding Rank}"
+                                            Text="{Binding Coin.Rank}"
                                             TextColor="#6A6A6A"
                                             VerticalOptions="End" />
                                         <Label
-                                            Text="{Binding Symbol}"
+                                            Text="{Binding Coin.Symbol}"
                                             TextColor="White"
                                             FontSize="20" />
                                     </StackLayout>
 
                                     <Label
-                                        Text="{Binding Name}"
+                                        Text="{Binding Coin.Name}"
                                         TextColor="#6A6A6A" />
                                 </StackLayout>
 
                                 <microcharts:ChartView
                                     Grid.Row="0"
                                     Grid.Column="1"
-                                    HeightRequest="50"/>
+                                    HeightRequest="50" />
 
                                 <Label
                                     Grid.Row="0"
                                     Grid.Column="2"
-                                    Text="{Binding PriceInUsd, StringFormat='${0:N}'}"
+                                    Text="{Binding Coin.PriceInUsd, StringFormat='${0:N}'}"
                                     TextColor="White"
                                     VerticalOptions="Center"
                                     HorizontalTextAlignment="End"
@@ -97,8 +97,8 @@
                                 <Label
                                     Grid.Row="0"
                                     Grid.Column="3"
-                                    Text="{Binding TwentyFourHourPercentageChange, StringFormat='{0:+0.##;-0.##;+#.##;-#.##;0}%'}"
-                                    TextColor="{Binding TwentyFourHourChangeColour}"
+                                    Text="{Binding Coin.TwentyFourHourPercentageChange, StringFormat='{0:+0.##;-0.##;+#.##;-#.##;0}%'}"
+                                    TextColor="{Binding Coin.TwentyFourHourChangeColour}"
                                     VerticalOptions="Center"
                                     HorizontalTextAlignment="End"
                                     FontSize="18" />

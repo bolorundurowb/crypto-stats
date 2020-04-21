@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using coin_stats.Models.Data;
+using coin_stats.Models.View;
 using coin_stats.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,8 +14,8 @@ namespace coin_stats.Views
     public partial class CoinsPage : ContentPage
     {
         private readonly CoinStatsService _service = new CoinStatsService();
-        private List<Coin> _cryptoStats = new List<Coin>();
-        private List<Coin> _filteredCryptoStats = new List<Coin>();
+        private List<CoinViewModel> _cryptoStats = new List<CoinViewModel>();
+        private List<CoinViewModel> _filteredCryptoStats = new List<CoinViewModel>();
 
         public CoinsPage()
         {
@@ -56,17 +57,20 @@ namespace coin_stats.Views
         private async Task LoadData()
         {
             var coins = await _service.GetAllStats();
-            _cryptoStats = coins.Data;
-            _filteredCryptoStats = coins.Data;
+            var vm = coins.Data
+                .Select(x => new CoinViewModel(x))
+                .ToList();
+            _cryptoStats = vm;
+            _filteredCryptoStats = vm;
             BindDataToUI();
         }
 
         private void SearchData(string query)
         {
             _filteredCryptoStats = _cryptoStats
-                .Where(x => x.Id.ToLowerInvariant().Contains(query)
-                            || x.Symbol.ToLowerInvariant().Contains(query)
-                            || x.Name.ToLowerInvariant().Contains(query))
+                .Where(x => x.Coin.Id.ToLowerInvariant().Contains(query)
+                            || x.Coin.Symbol.ToLowerInvariant().Contains(query)
+                            || x.Coin.Name.ToLowerInvariant().Contains(query))
                 .ToList();
             BindDataToUI();
         }
