@@ -50,8 +50,8 @@ namespace coin_stats.Views
 
         protected async void ViewCoinDetails(object sender, ItemTappedEventArgs e)
         {
-            var coin = e.Item as Coin;
-            await Navigation.PushAsync(new CoinDetailsPage(coin));
+            var vm = e.Item as CoinViewModel;
+            await Navigation.PushAsync(new CoinDetailsPage(vm?.Coin));
         }
 
         private async Task LoadData()

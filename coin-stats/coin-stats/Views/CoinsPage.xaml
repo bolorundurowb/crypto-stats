@@ -83,7 +83,8 @@
                                 <microcharts:ChartView
                                     Grid.Row="0"
                                     Grid.Column="1"
-                                    HeightRequest="50" />
+                                    HeightRequest="50"
+                                    Chart="{Binding History}"/>
 
                                 <Label
                                     Grid.Row="0"
