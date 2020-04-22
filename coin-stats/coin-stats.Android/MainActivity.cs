@@ -23,6 +23,10 @@ namespace coin_stats.Android
             {
                 Window.SetNavigationBarColor(Color.Black);
             }
+
+            // report crashes
+            Fabric.Fabric.With(this, new Crashlytics.Crashlytics());
+            Crashlytics.Crashlytics.HandleManagedExceptions();
         }
     }
 }
