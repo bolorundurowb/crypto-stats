@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1025709521715-qcuo7u5hro6fckgfec7ssf4o3vt83jgn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1025709521715-qcuo7u5hro6fckgfec7ssf4o3vt83jgn</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAMSko-0G3Lz9UDjRPi_CjwBMo-U-b_rDI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1025709521715</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.bolorundurowb.coinstats</string>
+	<key>PROJECT_ID</key>
+	<string>coin-stats-37e39</string>
+	<key>STORAGE_BUCKET</key>
+	<string>coin-stats-37e39.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1025709521715:ios:c39b832d2ac98fe9fadc46</string>
+	<key>DATABASE_URL</key>
+	<string>https://coin-stats-37e39.firebaseio.com</string>
+</dict>
+</plist>
