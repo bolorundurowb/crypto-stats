@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using Firebase.Crashlytics;
+using Foundation;
 using UIKit;
 
 namespace coin_stats.iOS
@@ -18,6 +19,9 @@ namespace coin_stats.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Firebase.Core.App.Configure();
+            Crashlytics.Configure();
+            
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
