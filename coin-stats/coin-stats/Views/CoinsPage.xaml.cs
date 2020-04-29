@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using coin_stats.Models.Data;
 using coin_stats.Services;
+using Plugin.Toast;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,8 +13,10 @@ namespace coin_stats.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CoinsPage : ContentPage
     {
+        private const int RefreshIntervalInMinutes = 5;
         private readonly CoinStatsService _service = new CoinStatsService();
         private List<Coin> _cryptoStats = new List<Coin>();
+        private bool _shouldContinue;
 
         public CoinsPage()
         {
@@ -24,9 +27,21 @@ namespace coin_stats.Views
 
         protected override async void OnAppearing()
         {
+            // load data
             await LoadData();
+
+            // change UI state
             prgLoading.IsVisible = false;
             lstCryptoStats.IsVisible = true;
+
+            // start background refresh
+            StartBackgroundRefresh();
+        }
+
+        protected override void OnDisappearing()
+        {
+            // stop the background refresh
+            StopBackgroundRefresh();
         }
 
         #endregion
@@ -64,7 +79,7 @@ namespace coin_stats.Views
 
         private async Task LoadData()
         {
-            var coins = await _service.GetAllStats();
+            var coins = await _service.GetAllStatsAsync();
             _cryptoStats = coins.Data;
             BindDataToUi(coins.Data);
         }
@@ -82,6 +97,35 @@ namespace coin_stats.Views
         private void BindDataToUi(IEnumerable<Coin> data)
         {
             lstCryptoStats.ItemsSource = data;
+        }
+
+        private void StartBackgroundRefresh()
+        {
+            _shouldContinue = true;
+            // Device.StartTimer(new TimeSpan(0, RefreshIntervalInMinutes, 0), () =>
+            Device.StartTimer(new TimeSpan(0, 1, 0), () =>
+            {
+                Task.Run(async () =>
+                {
+                    // pull latest data
+                    var service = new CoinStatsService();
+                    var coins = await service.GetAllStatsAsync();
+
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        BindDataToUi(coins.Data);
+                        CrossToastPopUp.Current.ShowToastSuccess("Coin data refreshed");
+                    });
+                });
+
+                // return true to keep the timer running.
+                return _shouldContinue;
+            });
+        }
+
+        private void StopBackgroundRefresh()
+        {
+            _shouldContinue = false;
         }
 
         #endregion

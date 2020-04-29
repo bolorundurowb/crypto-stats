@@ -12,8 +12,9 @@
 
     <ItemGroup>
         <PackageReference Include="Microcharts" Version="0.7.1" />
+        <PackageReference Include="Plugin.Toast" Version="2.1.2" />
         <PackageReference Include="System.Text.Json" Version="4.7.1" />
-        <PackageReference Include="Xamarin.Forms" Version="4.5.0.617" />
+        <PackageReference Include="Xamarin.Forms" Version="4.5.0.657" />
         <PackageReference Include="Microcharts.Forms" Version="0.7.1" />
     </ItemGroup>
 </Project>
