@@ -1,13 +1,16 @@
-﻿using coin_stats.Views;
+﻿using System.Diagnostics;
+using coin_stats.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
-
 namespace coin_stats
 {
     public partial class App : Application
     {
+        private static Stopwatch _stopWatch = new Stopwatch();
+        private const int TimespanInMinutes = 5;
+        
         public App()
         {
             InitializeComponent();
