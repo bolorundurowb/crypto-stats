@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using coin_stats.Models.Data;
 using coin_stats.Services;
+using Plugin.Toast;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,23 +13,42 @@ namespace coin_stats.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CoinsPage : ContentPage
     {
+        private const int RefreshIntervalInMinutes = 2;
         private readonly CoinStatsService _service = new CoinStatsService();
         private List<Coin> _cryptoStats = new List<Coin>();
-        private List<Coin> _filteredCryptoStats = new List<Coin>();
+        private bool _shouldContinue;
 
         public CoinsPage()
         {
             InitializeComponent();
         }
 
+        #region LifeCycle Overrides
+
         protected override async void OnAppearing()
         {
+            // load data
             await LoadData();
+
+            // change UI state
             prgLoading.IsVisible = false;
             lstCryptoStats.IsVisible = true;
+
+            // start background refresh
+            StartBackgroundRefresh();
         }
 
-        protected async void OnRefresh(object sender, EventArgs e)
+        protected override void OnDisappearing()
+        {
+            // stop the background refresh
+            StopBackgroundRefresh();
+        }
+
+        #endregion
+
+        #region Event Handlers
+
+        private async void OnRefresh(object sender, EventArgs e)
         {
             await LoadData();
 
@@ -41,39 +61,72 @@ namespace coin_stats.Views
             lstCryptoStats.IsRefreshing = false;
         }
 
-        protected void SearchStats(object sender, TextChangedEventArgs e)
+        private void SearchStats(object sender, TextChangedEventArgs e)
         {
             var search = e.NewTextValue.ToLowerInvariant();
             SearchData(search);
         }
 
-        protected async void ViewCoinDetails(object sender, ItemTappedEventArgs e)
+        private async void ViewCoinDetails(object sender, ItemTappedEventArgs e)
         {
             var coin = e.Item as Coin;
             await Navigation.PushAsync(new CoinDetailsPage(coin));
         }
 
+        #endregion
+
+        #region Helper Methods
+
         private async Task LoadData()
         {
-            var coins = await _service.GetAllStats();
+            var coins = await _service.GetAllStatsAsync();
             _cryptoStats = coins.Data;
-            _filteredCryptoStats = coins.Data;
-            BindDataToUI();
+            BindDataToUi(coins.Data);
         }
 
         private void SearchData(string query)
         {
-            _filteredCryptoStats = _cryptoStats
+            var filteredCryptoStats = _cryptoStats
                 .Where(x => x.Id.ToLowerInvariant().Contains(query)
                             || x.Symbol.ToLowerInvariant().Contains(query)
                             || x.Name.ToLowerInvariant().Contains(query))
                 .ToList();
-            BindDataToUI();
+            BindDataToUi(filteredCryptoStats);
         }
 
-        private void BindDataToUI()
+        private void BindDataToUi(IEnumerable<Coin> data)
         {
-            lstCryptoStats.ItemsSource = _filteredCryptoStats;
+            lstCryptoStats.ItemsSource = data;
         }
+
+        private void StartBackgroundRefresh()
+        {
+            _shouldContinue = true;
+            Device.StartTimer(new TimeSpan(0, RefreshIntervalInMinutes, 0), () =>
+            {
+                Task.Run(async () =>
+                {
+                    // pull latest data
+                    var service = new CoinStatsService();
+                    var coins = await service.GetAllStatsAsync();
+
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        BindDataToUi(coins.Data);
+                        CrossToastPopUp.Current.ShowCustomToast("Coin data refreshed", "#E19832", "#000000");
+                    });
+                });
+
+                // return true to keep the timer running.
+                return _shouldContinue;
+            });
+        }
+
+        private void StopBackgroundRefresh()
+        {
+            _shouldContinue = false;
+        }
+
+        #endregion
     }
 }

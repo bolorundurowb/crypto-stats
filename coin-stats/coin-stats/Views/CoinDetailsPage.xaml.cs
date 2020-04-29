@@ -25,7 +25,7 @@ namespace coin_stats.Views
             BindingContext = _coin;
 
             // pull and display chart
-            var extendedHistory = await _service.GetExtendedHistory(_coin.Id);
+            var extendedHistory = await _service.GetExtendedHistoryAsync(_coin.Id);
             var entries = extendedHistory.OrderedData
                 .Select(x =>
                 {

@@ -142,22 +142,17 @@
                             Text="{Binding MarketCapInUsd, StringFormat='${0:N}'}"
                             FontSize="18" />
                     </StackLayout>
-
-                    <StackLayout
-                        Grid.Row="3"
-                        Grid.Column="1"
-                        Margin="0, 15, 0, 0"
-                        HorizontalOptions="Fill">
-                        <Label
-                            TextColor="#E19832"
-                            Text="VOLUME TRADED (24HRS)" />
-                        <Label
-                            Margin="0, 10, 0, 0"
-                            TextColor="#FAFAFA"
-                            Text="{Binding VolumeTradedLastTwentyFourHours, StringFormat='{0:N}'}"
-                            FontSize="18" />
-                    </StackLayout>
                 </Grid>
+
+                <Label
+                    Margin="0, 15, 0, 0"
+                    TextColor="#E19832"
+                    Text="VOLUME TRADED (24HRS)" />
+                <Label
+                    Margin="0, 10, 0, 0"
+                    TextColor="#FAFAFA"
+                    Text="{Binding VolumeTradedLastTwentyFourHours, StringFormat='{0:N}'}"
+                    FontSize="18" />
 
                 <Label
                     Margin="0, 15, 0, 0"
