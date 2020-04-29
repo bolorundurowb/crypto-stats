@@ -13,7 +13,7 @@ namespace coin_stats.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CoinsPage : ContentPage
     {
-        private const int RefreshIntervalInMinutes = 5;
+        private const int RefreshIntervalInMinutes = 2;
         private readonly CoinStatsService _service = new CoinStatsService();
         private List<Coin> _cryptoStats = new List<Coin>();
         private bool _shouldContinue;
@@ -102,8 +102,7 @@ namespace coin_stats.Views
         private void StartBackgroundRefresh()
         {
             _shouldContinue = true;
-            // Device.StartTimer(new TimeSpan(0, RefreshIntervalInMinutes, 0), () =>
-            Device.StartTimer(new TimeSpan(0, 1, 0), () =>
+            Device.StartTimer(new TimeSpan(0, RefreshIntervalInMinutes, 0), () =>
             {
                 Task.Run(async () =>
                 {
@@ -114,7 +113,7 @@ namespace coin_stats.Views
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         BindDataToUi(coins.Data);
-                        CrossToastPopUp.Current.ShowToastSuccess("Coin data refreshed");
+                        CrossToastPopUp.Current.ShowCustomToast("Coin data refreshed", "#E19832", "#000000");
                     });
                 });
 
