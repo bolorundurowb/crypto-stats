@@ -14,12 +14,13 @@ namespace coin_stats.Views
     {
         private readonly CoinStatsService _service = new CoinStatsService();
         private List<Coin> _cryptoStats = new List<Coin>();
-        private List<Coin> _filteredCryptoStats = new List<Coin>();
 
         public CoinsPage()
         {
             InitializeComponent();
         }
+
+        #region LifeCycle Overrides
 
         protected override async void OnAppearing()
         {
@@ -28,7 +29,11 @@ namespace coin_stats.Views
             lstCryptoStats.IsVisible = true;
         }
 
-        protected async void OnRefresh(object sender, EventArgs e)
+        #endregion
+
+        #region Event Handlers
+
+        private async void OnRefresh(object sender, EventArgs e)
         {
             await LoadData();
 
@@ -41,39 +46,44 @@ namespace coin_stats.Views
             lstCryptoStats.IsRefreshing = false;
         }
 
-        protected void SearchStats(object sender, TextChangedEventArgs e)
+        private void SearchStats(object sender, TextChangedEventArgs e)
         {
             var search = e.NewTextValue.ToLowerInvariant();
             SearchData(search);
         }
 
-        protected async void ViewCoinDetails(object sender, ItemTappedEventArgs e)
+        private async void ViewCoinDetails(object sender, ItemTappedEventArgs e)
         {
             var coin = e.Item as Coin;
             await Navigation.PushAsync(new CoinDetailsPage(coin));
         }
 
+        #endregion
+
+        #region Helper Methods
+
         private async Task LoadData()
         {
             var coins = await _service.GetAllStats();
             _cryptoStats = coins.Data;
-            _filteredCryptoStats = coins.Data;
-            BindDataToUI();
+            BindDataToUi(coins.Data);
         }
 
         private void SearchData(string query)
         {
-            _filteredCryptoStats = _cryptoStats
+            var filteredCryptoStats = _cryptoStats
                 .Where(x => x.Id.ToLowerInvariant().Contains(query)
                             || x.Symbol.ToLowerInvariant().Contains(query)
                             || x.Name.ToLowerInvariant().Contains(query))
                 .ToList();
-            BindDataToUI();
+            BindDataToUi(filteredCryptoStats);
         }
 
-        private void BindDataToUI()
+        private void BindDataToUi(IEnumerable<Coin> data)
         {
-            lstCryptoStats.ItemsSource = _filteredCryptoStats;
+            lstCryptoStats.ItemsSource = data;
         }
+
+        #endregion
     }
 }
