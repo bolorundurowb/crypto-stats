@@ -4,5 +4,23 @@
              x:Class="coin_stats.App">
     <Application.Resources>
         <ResourceDictionary Source="ThemeResources/DarkTheme.xaml" />
+        
+        <Style x:Key="PrimaryHeaderStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"></Setter>
+            <Setter Property="FontAttributes" Value="Bold"></Setter>
+            <Setter Property="FontSize" Value="45"></Setter>
+        </Style>
+        
+        <Style x:Key="PrimaryTextStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"></Setter>
+        </Style>
+        
+        <Style x:Key="SecondaryTextStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource SubTextColor}"></Setter>
+        </Style>
+        
+        <Style x:Key="PageStyle" TargetType="ContentPage">
+            <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}"></Setter>
+        </Style>
     </Application.Resources>
 </Application>
