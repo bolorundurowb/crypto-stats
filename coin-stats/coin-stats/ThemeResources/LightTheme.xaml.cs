@@ -1,7 +1,19 @@
-﻿namespace coin_stats.ThemeResources
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace coin_stats.ThemeResources
 {
-    public class LightTheme_xaml
+    public partial class LightTheme : ResourceDictionary
     {
-        
+        public LightTheme()
+        {
+            InitializeComponent();
+        }
     }
 }
