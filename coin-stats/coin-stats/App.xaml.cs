@@ -1,4 +1,5 @@
-﻿using coin_stats.Views;
+﻿using coin_stats.Utils;
+using coin_stats.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,6 +11,9 @@ namespace coin_stats
         public App()
         {
             InitializeComponent();
+            
+            // apply theme
+            ThemeManager.LoadTheme();
 
             MainPage = new NavigationPage(new CoinsPage())
             {
