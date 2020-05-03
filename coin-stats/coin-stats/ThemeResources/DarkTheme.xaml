@@ -13,4 +13,5 @@
     <Color x:Key="SubTextColor">#6A6A6A</Color>
     <Color x:Key="SuccessColor">#0EDD7B</Color>
     <Color x:Key="ErrorColor">#DC4035</Color>
+    <Color x:Key="SearchBarBackground">#2E2E30</Color>
 </ResourceDictionary>

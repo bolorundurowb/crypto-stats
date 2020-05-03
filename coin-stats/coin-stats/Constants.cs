@@ -6,6 +6,8 @@
         
         public const string NegativeColour = "#DC4035";
         
-        public const string BackgroundColour = "#000000";
+        public const string DarkBackgroundColour = "#000000";
+        
+        public const string LightBackgroundColour = "#FFFFFF";
     }
 }

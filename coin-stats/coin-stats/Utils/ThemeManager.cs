@@ -47,7 +47,7 @@ namespace coin_stats.Utils
 
         public static Themes CurrentTheme()
         {
-            return (Themes) Preferences.Get("SelectedTheme", (int) Themes.Light);
+            return (Themes) Preferences.Get("SelectedTheme", (int) Themes.Dark);
         }
     }
 }

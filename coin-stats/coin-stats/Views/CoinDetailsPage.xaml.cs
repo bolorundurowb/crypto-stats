@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using coin_stats.Models.Data;
 using coin_stats.Services;
+using coin_stats.Utils;
 using Microcharts;
 using SkiaSharp;
 using Xamarin.Forms;
@@ -40,7 +41,10 @@ namespace coin_stats.Views
             var chart = new LineChart
             {
                 Entries = entries,
-                BackgroundColor = SKColor.Parse(Constants.BackgroundColour),
+                BackgroundColor =
+                    SKColor.Parse(ThemeManager.CurrentTheme() == ThemeManager.Themes.Dark
+                        ? Constants.DarkBackgroundColour
+                        : Constants.LightBackgroundColour),
                 LineSize = 6,
                 PointSize = 10
             };
