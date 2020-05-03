@@ -73,6 +73,20 @@ namespace coin_stats.Views
             await Navigation.PushAsync(new CoinDetailsPage(coin));
         }
 
+        private async void ShowContextOptions(object sender, EventArgs e)
+        {
+            var action = await DisplayActionSheet("Go to",
+                "Cancel", null, "Settings");
+
+            if (string.IsNullOrEmpty(action) || action == "Cancel")
+                return;
+
+            if (action == "Settings")
+            {
+                await Navigation.PushAsync(new SettingsPage());
+            }
+        }
+
         #endregion
 
         #region Helper Methods

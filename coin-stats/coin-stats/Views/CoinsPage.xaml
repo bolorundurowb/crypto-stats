@@ -8,11 +8,24 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
-            <Label
-                Text="Crypto Stats"
-                FontSize="45"
-                TextColor="#E19832"
-                FontAttributes="Bold" />
+            <StackLayout
+                Orientation="Horizontal">
+                <Label
+                    Text="Crypto Stats"
+                    FontSize="45"
+                    TextColor="#E19832"
+                    HorizontalOptions="FillAndExpand"
+                    FontAttributes="Bold" />
+                <Button
+                    Text="⋮"
+                    FontSize="30"
+                    HorizontalOptions="End"
+                    TextColor="#E19832"
+                    FontAttributes="Bold"
+                    BackgroundColor="Transparent"
+                    WidthRequest="30"
+                    Clicked="ShowContextOptions" />
+            </StackLayout>
 
             <SearchBar x:Name="txtSearch"
                        Margin="0, 10, 0, 10"
