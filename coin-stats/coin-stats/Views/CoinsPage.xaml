@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="coin_stats.Views.CoinsPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}"
-             Padding="20"
+             Padding="15, 10, 15, 5"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
@@ -17,14 +17,15 @@
                     HorizontalOptions="FillAndExpand"
                     FontAttributes="Bold" />
                 <Button
-                    Text="⋮"
-                    FontSize="30"
-                    HorizontalOptions="End"
+                    Text="&#xf013;"
+                    FontSize="25"
+                    FontFamily="FAS"
+                    VerticalOptions="Center"
                     TextColor="#E19832"
-                    FontAttributes="Bold"
                     BackgroundColor="Transparent"
-                    WidthRequest="30"
-                    Clicked="ShowContextOptions" />
+                    WidthRequest="47"
+                    HeightRequest="70"
+                    Clicked="ViewSettingsPage" />
             </StackLayout>
 
             <SearchBar x:Name="txtSearch"
