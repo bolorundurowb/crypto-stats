@@ -5,7 +5,7 @@
              x:Class="coin_stats.Views.SettingsPage"
              Title="Settings"
              BackgroundColor="{DynamicResource PageBackgroundColor}"
-             Padding="20">
+             Padding="15, 10, 15, 5">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Hello, world!"

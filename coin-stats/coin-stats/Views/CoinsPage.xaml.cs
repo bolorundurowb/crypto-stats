@@ -13,7 +13,7 @@ namespace coin_stats.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CoinsPage : ContentPage
     {
-        private const int RefreshIntervalInMinutes = 2;
+        private const int RefreshIntervalInMinutes = 3;
         private readonly CoinStatsService _service = new CoinStatsService();
         private List<Coin> _cryptoStats = new List<Coin>();
         private bool _shouldContinue;
@@ -75,16 +75,7 @@ namespace coin_stats.Views
 
         private async void ViewSettingsPage(object sender, EventArgs e)
         {
-            var action = await DisplayActionSheet("Go to",
-                "Cancel", null, "Settings");
-
-            if (string.IsNullOrEmpty(action) || action == "Cancel")
-                return;
-
-            if (action == "Settings")
-            {
-                await Navigation.PushAsync(new SettingsPage());
-            }
+            await Navigation.PushAsync(new SettingsPage());
         }
 
         #endregion
