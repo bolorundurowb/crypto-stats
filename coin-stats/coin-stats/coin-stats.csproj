@@ -37,4 +37,8 @@
         <DependentUpon>SettingsPage.xaml</DependentUpon>
       </Compile>
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Resources\Fonts" />
+    </ItemGroup>
 </Project>
