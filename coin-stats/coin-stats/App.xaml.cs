@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
+[assembly: ExportFont("FASolid.otf", Alias = "FAS")]
 namespace coin_stats
 {
     public partial class App : Application
@@ -11,7 +12,7 @@ namespace coin_stats
         public App()
         {
             InitializeComponent();
-            
+
             // apply theme
             ThemeManager.LoadTheme();
 
