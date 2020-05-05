@@ -11,6 +11,12 @@ namespace coin_stats
     {
         public App()
         {
+            // set experimental flags
+            Device.SetFlags(new []
+            {
+                "Expander_Experimental"
+            });
+            
             InitializeComponent();
 
             // apply theme
@@ -28,6 +34,7 @@ namespace coin_stats
 
         protected override void OnSleep()
         {
+            CoinsPage.StopBackgroundRefresh();
         }
 
         protected override void OnResume()

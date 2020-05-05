@@ -11,6 +11,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="ExpandableView" Version="1.0.10" />
         <PackageReference Include="Microcharts" Version="0.7.1" />
         <PackageReference Include="Plugin.Toast" Version="2.1.2" />
         <PackageReference Include="System.Text.Json" Version="4.7.1" />
