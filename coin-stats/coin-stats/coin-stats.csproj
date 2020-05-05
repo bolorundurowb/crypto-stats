@@ -30,15 +30,13 @@
         <SubType>Designer</SubType>
         <Generator></Generator>
       </EmbeddedResource>
+      <None Remove="Resources\Fonts\FASolid.otf" />
+      <EmbeddedResource Include="Resources\Fonts\FASolid.otf" />
     </ItemGroup>
 
     <ItemGroup>
       <Compile Update="Views\SettingsPage.xaml.cs">
         <DependentUpon>SettingsPage.xaml</DependentUpon>
       </Compile>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Resources\Fonts" />
     </ItemGroup>
 </Project>
