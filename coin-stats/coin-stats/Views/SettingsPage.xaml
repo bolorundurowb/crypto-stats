@@ -2,17 +2,15 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView"
              x:Class="coin_stats.Views.SettingsPage"
              Title="Settings"
              BackgroundColor="{DynamicResource PageBackgroundColor}"
              Padding="15, 10, 15, 5">
     <ContentPage.Content>
         <StackLayout>
-            <expandable:ExpandableView
-                Margin="0, 10, 0, 0"
-                StatusChanged="OnStatusChanged">
-                <expandable:ExpandableView.PrimaryView>
+            <Expander
+                Margin="0, 10, 0, 0">
+                <Expander.Header>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50" />
@@ -49,29 +47,25 @@
                             Grid.Row="0"
                             Grid.Column="2" />
                     </Grid>
-                </expandable:ExpandableView.PrimaryView>
-                <expandable:ExpandableView.SecondaryViewTemplate>
-                    <DataTemplate>
-                        <StackLayout
-                            HorizontalOptions="Fill"
-                            Orientation="Vertical">
-                            <Label
-                                Text="Type" />
-                            <Picker
-                                HeightRequest="50"
-                                Title="Select"
-                                SelectedItem="{Binding SupportType, Mode=TwoWay}">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Complaint</x:String>
-                                        <x:String>Suggestion</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                            </Picker>
-                        </StackLayout>
-                    </DataTemplate>
-                </expandable:ExpandableView.SecondaryViewTemplate>
-            </expandable:ExpandableView>
+                </Expander.Header>
+                <StackLayout
+                    HorizontalOptions="Fill"
+                    Orientation="Vertical">
+                    <Label
+                        Text="Type" />
+                    <Picker
+                        HeightRequest="50"
+                        Title="Select"
+                        SelectedItem="{Binding SupportType, Mode=TwoWay}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Complaint</x:String>
+                                <x:String>Suggestion</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </StackLayout>
+            </Expander>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
