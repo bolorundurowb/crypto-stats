@@ -3,23 +3,37 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="coin_stats.Views.CoinsPage"
-             BackgroundColor="Black"
-             Padding="20"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             Padding="15, 10, 15, 5"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
-            <Label
-                Text="Crypto Stats"
-                FontSize="45"
-                TextColor="#E19832"
-                FontAttributes="Bold" />
+            <StackLayout
+                Orientation="Horizontal">
+                <Label
+                    Text="Crypto Stats"
+                    FontSize="45"
+                    TextColor="#E19832"
+                    HorizontalOptions="FillAndExpand"
+                    FontAttributes="Bold" />
+                <Button
+                    Text="&#xf013;"
+                    FontSize="25"
+                    FontFamily="FAS"
+                    VerticalOptions="Center"
+                    TextColor="#E19832"
+                    BackgroundColor="Transparent"
+                    WidthRequest="47"
+                    HeightRequest="70"
+                    Clicked="ViewSettingsPage" />
+            </StackLayout>
 
             <SearchBar x:Name="txtSearch"
                        Margin="0, 10, 0, 10"
                        HorizontalOptions="FillAndExpand"
                        HeightRequest="40"
                        Placeholder="Search"
-                       BackgroundColor="#2E2E30"
+                       BackgroundColor="{DynamicResource SearchBarBackground}"
                        TextChanged="SearchStats" />
 
             <ActivityIndicator x:Name="prgLoading"
@@ -67,24 +81,24 @@
                                         Orientation="Horizontal">
                                         <Label
                                             Text="{Binding Rank}"
-                                            TextColor="#6A6A6A"
+                                            TextColor="{DynamicResource SubTextColor}"
                                             VerticalOptions="End" />
                                         <Label
                                             Text="{Binding Symbol}"
-                                            TextColor="White"
+                                            TextColor="{DynamicResource PrimaryTextColor}"
                                             FontSize="20" />
                                     </StackLayout>
 
                                     <Label
                                         Text="{Binding Name}"
-                                        TextColor="#6A6A6A" />
+                                        TextColor="{DynamicResource SubTextColor}" />
                                 </StackLayout>
 
                                 <Label
                                     Grid.Row="0"
                                     Grid.Column="1"
                                     Text="{Binding PriceInUsd, StringFormat='${0:N}'}"
-                                    TextColor="White"
+                                    TextColor="{DynamicResource PrimaryTextColor}"
                                     VerticalOptions="Center"
                                     HorizontalTextAlignment="End"
                                     FontSize="18" />

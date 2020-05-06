@@ -2,6 +2,7 @@
 using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
+using coin_stats.Utils;
 
 namespace coin_stats.Android
 {
@@ -14,6 +15,21 @@ namespace coin_stats.Android
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
+            var theme = ThemeManager.CurrentTheme();
+            switch (theme)
+            {
+                case ThemeManager.Themes.Light:
+                {
+                    SetTheme(Resource.Style.lightAppTheme);
+                    break;
+                }
+                default:
+                {
+                    SetTheme(Resource.Style.darkAppTheme);
+                    break;
+                }
+            }
+
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
@@ -21,7 +37,8 @@ namespace coin_stats.Android
             // set bottom bar colour
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
             {
-                Window.SetNavigationBarColor(Color.Black);
+                Window.SetNavigationBarColor(
+                    theme == ThemeManager.Themes.Dark ? Color.Black : new Color(175, 175, 175));
             }
 
             // report crashes

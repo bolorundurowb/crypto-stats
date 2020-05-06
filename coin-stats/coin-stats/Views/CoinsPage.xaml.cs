@@ -13,10 +13,10 @@ namespace coin_stats.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CoinsPage : ContentPage
     {
-        private const int RefreshIntervalInMinutes = 2;
+        private const int RefreshIntervalInMinutes = 3;
         private readonly CoinStatsService _service = new CoinStatsService();
         private List<Coin> _cryptoStats = new List<Coin>();
-        private bool _shouldContinue;
+        private static bool _shouldContinue;
 
         public CoinsPage()
         {
@@ -73,6 +73,11 @@ namespace coin_stats.Views
             await Navigation.PushAsync(new CoinDetailsPage(coin));
         }
 
+        private async void ViewSettingsPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SettingsPage());
+        }
+
         #endregion
 
         #region Helper Methods
@@ -122,7 +127,7 @@ namespace coin_stats.Views
             });
         }
 
-        private void StopBackgroundRefresh()
+        internal static void StopBackgroundRefresh()
         {
             _shouldContinue = false;
         }
