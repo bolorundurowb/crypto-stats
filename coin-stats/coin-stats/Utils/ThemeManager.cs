@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace coin_stats.Utils
 {
-    public class ThemeManager
+    public static class ThemeManager
     {
         public enum Themes
         {
@@ -33,7 +33,7 @@ namespace coin_stats.Utils
                         break;
                     }
                     default:
-                        mergedDictionaries.Add(new LightTheme());
+                        mergedDictionaries.Add(new DarkTheme());
                         break;
                 }
             }
@@ -41,7 +41,7 @@ namespace coin_stats.Utils
 
         public static void LoadTheme()
         {
-            Themes currentTheme = CurrentTheme();
+            var currentTheme = CurrentTheme();
             ChangeTheme(currentTheme);
         }
 

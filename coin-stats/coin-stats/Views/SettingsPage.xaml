@@ -35,6 +35,7 @@
                             FontAttributes="Bold"
                             VerticalTextAlignment="Center"
                             HorizontalTextAlignment="Center"
+                            TextColor="{DynamicResource PrimaryTextColor}"
                             Grid.Row="0"
                             Grid.Column="1" />
                         <Label
@@ -49,21 +50,18 @@
                     </Grid>
                 </Expander.Header>
                 <StackLayout
+                    Margin="0, 10, 0, 0"
                     HorizontalOptions="Fill"
                     Orientation="Vertical">
                     <Label
-                        Text="Type" />
-                    <Picker
-                        HeightRequest="50"
-                        Title="Select"
-                        SelectedItem="{Binding SupportType, Mode=TwoWay}">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Complaint</x:String>
-                                <x:String>Suggestion</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
+                        TextColor="#E19832"
+                        Text="MODE" />
+                    <Picker x:Name="cmbTheme"
+                            HeightRequest="50"
+                            Title="Choose Theme"
+                            ItemDisplayBinding="{Binding Name}"
+                            TextColor="{DynamicResource PrimaryTextColor}"
+                            SelectedIndexChanged="ChangeTheme" />
                 </StackLayout>
             </Expander>
         </StackLayout>
