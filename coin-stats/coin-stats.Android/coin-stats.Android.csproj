@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Plugin.Toast" Version="2.1.2" />
-    <PackageReference Include="System.Text.Json" Version="4.7.1" />
+    <PackageReference Include="System.Text.Json" Version="4.7.2" />
     <PackageReference Include="Xamarin.Android.Crashlytics">
       <Version>2.9.4.4</Version>
     </PackageReference>
