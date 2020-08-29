@@ -31,7 +31,7 @@ namespace coin_stats.Views
                 .Select(x =>
                 {
                     float.TryParse(x.PriceUsd, out var price);
-                    return new Microcharts.Entry(price)
+                    return new ChartEntry(price)
                     {
                         Color = SKColor.Parse(Constants.PositiveColour)
                     };
