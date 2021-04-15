@@ -113,9 +113,9 @@
         <PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\coin-stats\coin-stats.csproj">
+        <ProjectReference Include="..\crypto-stats\crypto-stats.csproj">
           <Project>{a1082c1c-400f-4d47-83ac-5dec35729882}</Project>
-          <Name>coin-stats</Name>
+          <Name>crypto-stats</Name>
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>

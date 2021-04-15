@@ -102,9 +102,9 @@
     <AndroidResource Include="Resources\values\styles_app_themes.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\coin-stats\coin-stats.csproj">
+    <ProjectReference Include="..\crypto-stats\crypto-stats.csproj">
       <Project>{a1082c1c-400f-4d47-83ac-5dec35729882}</Project>
-      <Name>coin-stats</Name>
+      <Name>crypto-stats</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
