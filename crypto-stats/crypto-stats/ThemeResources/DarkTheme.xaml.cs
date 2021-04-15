@@ -1,6 +1,4 @@
-﻿using Xamarin.Forms;
-
-namespace coin_stats.ThemeResources
+﻿namespace crypto_stats.ThemeResources
 {
     public partial class DarkTheme : ResourceDictionary
     {

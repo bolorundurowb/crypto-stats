@@ -1,14 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using coin_stats.Models.Data;
-using coin_stats.Services;
-using Plugin.Toast;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using crypto_stats.Models.Data;
+using crypto_stats.Services;
 
-namespace coin_stats.Views
+namespace crypto_stats.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CoinsPage : ContentPage

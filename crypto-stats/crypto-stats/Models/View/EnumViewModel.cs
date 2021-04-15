@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace coin_stats.Models.View
+﻿namespace crypto_stats.Models.View
 {
     public class EnumViewModel
     {

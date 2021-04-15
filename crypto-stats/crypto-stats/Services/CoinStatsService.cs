@@ -1,9 +1,6 @@
-﻿using System.Net.Http;
-using System.Text.Json;
-using System.Threading.Tasks;
-using coin_stats.Models.Data;
+﻿using crypto_stats.Models.Data;
 
-namespace coin_stats.Services
+namespace crypto_stats.Services
 {
     public class CoinStatsService
     {

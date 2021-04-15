@@ -1,8 +1,7 @@
 ﻿using Android.App;
 using Android.Content;
-using Android.Support.V7.App;
 
-namespace coin_stats.Android
+namespace crypto_stats.Android
 {
     [Activity(Label = "Crypto Stats", Icon = "@mipmap/ic_launcher", Theme = "@style/Splash", MainLauncher = true,
         NoHistory = true)]

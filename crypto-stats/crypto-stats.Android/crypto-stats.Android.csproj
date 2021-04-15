@@ -6,7 +6,7 @@
     <ProjectGuid>{DAA791E1-93E9-4DD4-ABFB-12AD15F0BD47}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>coin_stats.Android</RootNamespace>
+    <RootNamespace>crypto_stats.Android</RootNamespace>
     <AssemblyName>coin_stats.Android</AssemblyName>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>

@@ -1,4 +1,4 @@
-﻿namespace coin_stats
+﻿namespace crypto_stats
 {
     public class Constants
     {

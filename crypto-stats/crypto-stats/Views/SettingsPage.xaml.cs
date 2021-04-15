@@ -1,12 +1,7 @@
-﻿using System;
-using System.Linq;
-using coin_stats.Models.View;
-using coin_stats.Utils;
-using Plugin.Toast;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using crypto_stats.Models.View;
+using crypto_stats.Utils;
 
-namespace coin_stats.Views
+namespace crypto_stats.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsPage : ContentPage

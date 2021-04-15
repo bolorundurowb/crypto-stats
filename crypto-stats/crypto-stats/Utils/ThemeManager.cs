@@ -1,8 +1,6 @@
-﻿using coin_stats.ThemeResources;
-using Xamarin.Essentials;
-using Xamarin.Forms;
+﻿using crypto_stats.ThemeResources;
 
-namespace coin_stats.Utils
+namespace crypto_stats.Utils
 {
     public static class ThemeManager
     {

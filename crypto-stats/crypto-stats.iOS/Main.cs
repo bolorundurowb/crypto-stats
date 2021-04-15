@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace coin_stats.iOS
+namespace crypto_stats.iOS
 {
     public class Application
     {

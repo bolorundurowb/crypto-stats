@@ -2,9 +2,10 @@
 using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
-using coin_stats.Utils;
+using coin_stats.Android;
+using crypto_stats.Utils;
 
-namespace coin_stats.Android
+namespace crypto_stats.Android
 {
     [Activity(Label = "Crypto Stats", Theme = "@style/MainTheme",
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]

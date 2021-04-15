@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace coin_stats.Models.Data
+﻿namespace crypto_stats.Models.Data
 {
     public class History
     {

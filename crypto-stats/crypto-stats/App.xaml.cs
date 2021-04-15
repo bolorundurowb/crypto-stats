@@ -1,11 +1,9 @@
-﻿using coin_stats.Utils;
-using coin_stats.Views;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using crypto_stats.Utils;
+using crypto_stats.Views;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 [assembly: ExportFont("FASolid.otf", Alias = "FAS")]
-namespace coin_stats
+namespace crypto_stats
 {
     public partial class App : Application
     {
