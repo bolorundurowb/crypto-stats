@@ -5,6 +5,8 @@ using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 [assembly: ExportFont("FASolid.otf", Alias = "FAS")]
+[assembly: ExportFont("GorditaBold.otf", Alias = "GorditaBold")]
+[assembly: ExportFont("GorditaLight.otf", Alias = "Gordita")]
 namespace crypto_stats
 {
     public partial class App : Application

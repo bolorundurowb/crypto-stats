@@ -32,6 +32,10 @@
       </EmbeddedResource>
       <None Remove="Resources\Fonts\FASolid.otf" />
       <EmbeddedResource Include="Resources\Fonts\FASolid.otf" />
+      <None Remove="Resources\Fonts\GorditaBold.otf" />
+      <EmbeddedResource Include="Resources\Fonts\GorditaBold.otf" />
+      <None Remove="Resources\Fonts\GorditaLight.otf" />
+      <EmbeddedResource Include="Resources\Fonts\GorditaLight.otf" />
     </ItemGroup>
 
     <ItemGroup>
