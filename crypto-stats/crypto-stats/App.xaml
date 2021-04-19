@@ -88,23 +88,19 @@
             <Setter Property="VerticalOptions" Value="Center"></Setter>
         </Style>
         
-        <Style x:Key="PrimaryHeaderStyle" TargetType="Label">
+        <Style x:Key="DetailHeaderStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="Gordita"></Setter>
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}"></Setter>
+            <Setter Property="TextTransform" Value="Uppercase"></Setter>
+            <Setter Property="FontSize" Value="11"></Setter>
+        </Style>
+        
+        <Style x:Key="DetailContentStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="GorditaBold"></Setter>
             <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"></Setter>
-            <Setter Property="FontAttributes" Value="Bold"></Setter>
-            <Setter Property="FontSize" Value="45"></Setter>
-        </Style>
-        
-        <Style x:Key="PrimaryTextStyle" TargetType="Label">
-            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"></Setter>
-        </Style>
-        
-        <Style x:Key="SecondaryTextStyle" TargetType="Label">
-            <Setter Property="TextColor" Value="{DynamicResource SubTextColor}"></Setter>
-        </Style>
-        
-        <Style TargetType="NavigationPage">
-            <Setter Property="BarBackgroundColor" Value="{DynamicResource PageBackgroundColor}"/>
-            <Setter Property="BarTextColor" Value="{DynamicResource PrimaryColor}"/>
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="Margin" Value="0, 5, 0, 10"></Setter>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
         </Style>
     </Application.Resources>
 </Application>

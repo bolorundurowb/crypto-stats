@@ -16,21 +16,17 @@
                 Orientation="Vertical"
                 HorizontalOptions="FillAndExpand">
                 <Label
-                    TextColor="#E19832"
-                    Text="NAME" />
+                    Text="NAME"
+                    Style="{StaticResource DetailHeaderStyle}" />
                 <Label
-                    Margin="0, 10, 0, 0"
-                    TextColor="{DynamicResource PrimaryTextColor}"
                     Text="{Binding Name}"
-                    FontSize="18" />
+                    Style="{StaticResource DetailContentStyle}" />
 
                 <Grid
-                    Margin="0, 15, 0, 0"
                     Padding="0"
                     HorizontalOptions="FillAndExpand"
                     BackgroundColor="Transparent">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
@@ -44,13 +40,11 @@
                         Grid.Column="0"
                         HorizontalOptions="FillAndExpand">
                         <Label
-                            TextColor="#E19832"
-                            Text="SYMBOL" />
+                            Text="SYMBOL"
+                            Style="{StaticResource DetailHeaderStyle}" />
                         <Label
-                            Margin="0, 10, 0, 0"
-                            TextColor="{DynamicResource PrimaryTextColor}"
                             Text="{Binding Symbol}"
-                            FontSize="18" />
+                            Style="{StaticResource DetailContentStyle}" />
                     </StackLayout>
 
                     <StackLayout
@@ -58,116 +52,88 @@
                         Grid.Column="1"
                         HorizontalOptions="FillAndExpand">
                         <Label
-                            TextColor="#E19832"
-                            Text="RANK" />
+                            Text="RANK"
+                            Style="{StaticResource DetailHeaderStyle}" />
                         <Label
-                            Margin="0, 10, 0, 0"
-                            TextColor="{DynamicResource PrimaryTextColor}"
                             Text="{Binding Rank}"
-                            FontSize="18" />
+                            Style="{StaticResource DetailContentStyle}" />
                     </StackLayout>
 
                     <StackLayout
                         Grid.Row="1"
                         Grid.Column="0"
-                        Margin="0, 15, 0, 0"
-                        HorizontalOptions="Fill">
-                        <Label
-                            TextColor="#E19832"
-                            Text="PRICE (USD)" />
-                        <Label
-                            Margin="0, 10, 0, 0"
-                            TextColor="{DynamicResource PrimaryTextColor}"
-                            Text="{Binding PriceInUsd, StringFormat='${0:N}'}"
-                            FontSize="18" />
-                    </StackLayout>
-
-                    <StackLayout
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        Margin="0, 15, 0, 0"
-                        HorizontalOptions="Fill">
-
-                        <Label
-                            TextColor="#E19832"
-                            Text="PRICE CHANGE (24HRS)" />
-                        <Label
-                            Margin="0, 10, 0, 0"
-                            Text="{Binding TwentyFourHourPercentageChange, StringFormat='{0:+0.##;-0.##;+#.##;-#.##;0}%'}"
-                            TextColor="{Binding TwentyFourHourChangeColour}"
-                            FontSize="18" />
-                    </StackLayout>
-
-                    <StackLayout
-                        Grid.Row="2"
-                        Grid.Column="0"
-                        Margin="0, 15, 0, 0"
-                        HorizontalOptions="Fill">
-                        <Label
-                            TextColor="#E19832"
-                            Text="CURRENT SUPPLY" />
-                        <Label
-                            Margin="0, 10, 0, 0"
-                            TextColor="{DynamicResource PrimaryTextColor}"
-                            Text="{Binding TotalCoinSupply, StringFormat='{0:N}'}"
-                            FontSize="18" />
-                    </StackLayout>
-
-                    <StackLayout
-                        Grid.Row="2"
-                        Grid.Column="1"
-                        Margin="0, 15, 0, 0"
-                        HorizontalOptions="Fill">
-                        <Label
-                            TextColor="#E19832"
-                            Text="MAX SUPPLY" />
-                        <Label
-                            Margin="0, 10, 0, 0"
-                            Text="{Binding MaxCoinSupply, StringFormat='{0:N}'}"
-                            TextColor="{DynamicResource PrimaryTextColor}"
-                            FontSize="18" />
-                    </StackLayout>
-
-                    <StackLayout
-                        Grid.Row="3"
-                        Grid.Column="0"
-                        Margin="0, 15, 0, 0"
                         HorizontalOptions="FillAndExpand">
                         <Label
-                            TextColor="#E19832"
-                            Text="MARKET CAP (USD)" />
+                            Text="PRICE (USD)"
+                            Style="{StaticResource DetailHeaderStyle}" />
                         <Label
-                            Margin="0, 10, 0, 0"
-                            TextColor="{DynamicResource PrimaryTextColor}"
-                            Text="{Binding MarketCapInUsd, StringFormat='${0:N}'}"
-                            FontSize="18" />
+                            Text="{Binding PriceInUsd, StringFormat='${0:N}'}"
+                            Style="{StaticResource DetailContentStyle}" />
+                    </StackLayout>
+
+                    <StackLayout
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="0, 15, 0, 0"
+                        HorizontalOptions="Fill">
+                        <Label
+                            Text="PRICE CHANGE (24HRS)"
+                            Style="{StaticResource DetailHeaderStyle}" />
+                        <Label
+                            Text="{Binding TwentyFourHourPercentageChange, StringFormat='{0:+0.##;-0.##;+#.##;-#.##;0}%'}"
+                            TextColor="{Binding TwentyFourHourChangeColour}"
+                            Style="{StaticResource DetailContentStyle}" />
+                    </StackLayout>
+
+                    <StackLayout
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        HorizontalOptions="FillAndExpand">
+                        <Label
+                            Text="CURRENT SUPPLY"
+                            Style="{StaticResource DetailHeaderStyle}" />
+                        <Label
+                            Text="{Binding TotalCoinSupply, StringFormat='{0:N}'}"
+                            Style="{StaticResource DetailContentStyle}" />
+                    </StackLayout>
+
+                    <StackLayout
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        HorizontalOptions="FillAndExpand">
+                        <Label
+                            Text="MAX SUPPLY"
+                            Style="{StaticResource DetailHeaderStyle}" />
+                        <Label
+                            Text="{Binding MaxCoinSupply, StringFormat='{0:N}'}"
+                            Style="{StaticResource DetailContentStyle}" />
                     </StackLayout>
                 </Grid>
+                
+                <Label
+                    Text="MARKET CAP (USD)"
+                    Style="{StaticResource DetailHeaderStyle}" />
+                <Label
+                    Text="{Binding MarketCapInUsd, StringFormat='${0:N}'}"
+                    Style="{StaticResource DetailContentStyle}" />
 
                 <Label
-                    Margin="0, 15, 0, 0"
-                    TextColor="#E19832"
-                    Text="VOLUME TRADED (24HRS)" />
+                    Text="VOLUME TRADED (24HRS)"
+                    Style="{StaticResource DetailHeaderStyle}" />
                 <Label
-                    Margin="0, 10, 0, 0"
-                    TextColor="{DynamicResource PrimaryTextColor}"
                     Text="{Binding VolumeTradedLastTwentyFourHours, StringFormat='{0:N}'}"
-                    FontSize="18" />
+                    Style="{StaticResource DetailContentStyle}" />
 
                 <Label
-                    Margin="0, 15, 0, 0"
-                    TextColor="#E19832"
-                    Text="VOLUME WEIGHTED PRICE (USD, 24HRS)" />
+                    Text="VOLUME WEIGHTED PRICE (USD, 24HRS)"
+                    Style="{StaticResource DetailHeaderStyle}" />
                 <Label
-                    Margin="0, 10, 0, 0"
-                    TextColor="{DynamicResource PrimaryTextColor}"
                     Text="{Binding VolumeWeightedAveragePriceLastTwentyFourHours, StringFormat='${0:N}'}"
-                    FontSize="18" />
+                    Style="{StaticResource DetailContentStyle}" />
 
                 <Label
-                    Margin="0, 15, 0, 0"
-                    TextColor="#E19832"
-                    Text="PERFORMANCE (LAST 15MIN)" />
+                    Text="PERFORMANCE (LAST 15MIN)"
+                    Style="{StaticResource DetailHeaderStyle}" />
 
                 <ActivityIndicator x:Name="prgLoadingChart"
                                    IsRunning="True"
