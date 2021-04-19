@@ -1,4 +1,6 @@
 ﻿using crypto_stats.ThemeResources;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace crypto_stats.Utils
 {
@@ -13,27 +15,29 @@ namespace crypto_stats.Utils
         public static void ChangeTheme(Themes theme)
         {
             var mergedDictionaries = Application.Current.Resources.MergedDictionaries;
-            if (mergedDictionaries != null)
+            if (mergedDictionaries == null)
             {
-                mergedDictionaries.Clear();
-                Preferences.Set("SelectedTheme", (int) theme);
+                return;
+            }
+            
+            mergedDictionaries.Clear();
+            Preferences.Set("SelectedTheme", (int) theme);
 
-                switch (theme)
+            switch (theme)
+            {
+                case Themes.Light:
                 {
-                    case Themes.Light:
-                    {
-                        mergedDictionaries.Add(new LightTheme());
-                        break;
-                    }
-                    case Themes.Dark:
-                    {
-                        mergedDictionaries.Add(new DarkTheme());
-                        break;
-                    }
-                    default:
-                        mergedDictionaries.Add(new DarkTheme());
-                        break;
+                    mergedDictionaries.Add(new LightTheme());
+                    break;
                 }
+                case Themes.Dark:
+                {
+                    mergedDictionaries.Add(new DarkTheme());
+                    break;
+                }
+                default:
+                    mergedDictionaries.Add(new DarkTheme());
+                    break;
             }
         }
 

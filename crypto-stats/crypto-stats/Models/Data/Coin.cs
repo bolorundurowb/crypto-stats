@@ -1,4 +1,6 @@
-﻿namespace crypto_stats.Models.Data
+﻿using Xamarin.Forms;
+
+namespace crypto_stats.Models.Data
 {
     public class Coin
     {

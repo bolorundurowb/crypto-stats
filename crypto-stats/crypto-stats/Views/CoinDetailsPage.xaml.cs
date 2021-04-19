@@ -1,6 +1,11 @@
-﻿using crypto_stats.Models.Data;
+﻿using System.Linq;
+using crypto_stats.Models.Data;
 using crypto_stats.Services;
 using crypto_stats.Utils;
+using Microcharts;
+using SkiaSharp;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace crypto_stats.Views
 {

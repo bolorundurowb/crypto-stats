@@ -2,7 +2,6 @@
 using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
-using coin_stats.Android;
 using crypto_stats.Utils;
 
 namespace crypto_stats.Android

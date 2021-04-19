@@ -2,7 +2,7 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="coin_stats.Views.CoinsPage"
+             x:Class="crypto_stats.Views.CoinsPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}"
              Padding="15, 10, 15, 5"
              NavigationPage.HasNavigationBar="False">

@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using Firebase.Crashlytics;
+using Foundation;
 using UIKit;
 
 namespace crypto_stats.iOS

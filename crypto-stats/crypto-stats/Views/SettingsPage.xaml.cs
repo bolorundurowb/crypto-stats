@@ -1,5 +1,10 @@
-﻿using crypto_stats.Models.View;
+﻿using System;
+using System.Linq;
+using crypto_stats.Models.View;
 using crypto_stats.Utils;
+using Plugin.Toast;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace crypto_stats.Views
 {

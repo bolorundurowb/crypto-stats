@@ -23,7 +23,7 @@
     <key>MinimumOSVersion</key>
     <string>12.2</string>
     <key>CFBundleDisplayName</key>
-    <string>coin_stats</string>
+    <string>crypto_stats</string>
     <key>CFBundleIdentifier</key>
     <string>com.bolorundurowb.cryptostats</string>
     <key>CFBundleVersion</key>

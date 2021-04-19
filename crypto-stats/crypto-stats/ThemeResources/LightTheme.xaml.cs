@@ -1,4 +1,6 @@
-﻿namespace crypto_stats.ThemeResources
+﻿using Xamarin.Forms;
+
+namespace crypto_stats.ThemeResources
 {
     public partial class LightTheme : ResourceDictionary
     {

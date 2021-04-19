@@ -1,4 +1,7 @@
-﻿using crypto_stats.Models.Data;
+﻿using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
+using crypto_stats.Models.Data;
 
 namespace crypto_stats.Services
 {

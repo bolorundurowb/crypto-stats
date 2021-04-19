@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
+using AndroidX.AppCompat.App;
 
 namespace crypto_stats.Android
 {

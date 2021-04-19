@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="coin_stats.ThemeResources.DarkTheme">
+             x:Class="crypto_stats.ThemeResources.DarkTheme">
     <Color x:Key="PrimaryColor">#E19832</Color>   
     <Color x:Key="PrimaryDarkColor">#E19832</Color>  
     <Color x:Key="PageBackgroundColor">#000000</Color>

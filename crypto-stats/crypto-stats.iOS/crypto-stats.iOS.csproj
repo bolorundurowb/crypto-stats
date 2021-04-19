@@ -10,7 +10,7 @@
         <OutputType>Exe</OutputType>
         <RootNamespace>crypto_stats.iOS</RootNamespace>
         <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-        <AssemblyName>coin_stats.iOS</AssemblyName>
+        <AssemblyName>crypto_stats.iOS</AssemblyName>
         <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">

@@ -1,5 +1,7 @@
 ﻿using crypto_stats.Utils;
 using crypto_stats.Views;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 [assembly: ExportFont("FASolid.otf", Alias = "FAS")]
