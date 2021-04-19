@@ -40,6 +40,18 @@
             <Setter Property="Margin" Value="0, 10, 0, 10"></Setter>
         </Style>
         
+        <Style x:Key="ProgressStyle" TargetType="ActivityIndicator">
+            <Setter Property="HorizontalOptions" Value="Center"></Setter>
+            <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+            <Setter Property="HeightRequest" Value="35"></Setter>
+            <Setter Property="WidthRequest" Value="35"></Setter>
+            <Setter Property="IsEnabled" Value="True"></Setter>
+            <Setter Property="IsRunning" Value="True"></Setter>
+            <Setter Property="IsVisible" Value="True"></Setter>
+            <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+            <Setter Property="Color" Value="{DynamicResource PrimaryColor}"></Setter>
+        </Style>
+        
         <Style x:Key="PrimaryHeaderStyle" TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"></Setter>
             <Setter Property="FontAttributes" Value="Bold"></Setter>

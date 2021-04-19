@@ -22,15 +22,7 @@
                        TextChanged="SearchStats" />
 
             <ActivityIndicator x:Name="prgLoading"
-                               HorizontalOptions="Center"
-                               VerticalOptions="CenterAndExpand"
-                               WidthRequest="35"
-                               HeightRequest="35"
-                               IsEnabled="True"
-                               IsRunning="True"
-                               IsVisible="True"
-                               BackgroundColor="Transparent"
-                               Color="#E19832" />
+                               Style="{StaticResource ProgressStyle}" />
 
             <ListView x:Name="lstCryptoStats"
                       HorizontalOptions="Fill"
