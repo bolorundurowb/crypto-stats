@@ -5,6 +5,8 @@ using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 [assembly: ExportFont("FASolid.otf", Alias = "FAS")]
+[assembly: ExportFont("GorditaBold.otf", Alias = "GorditaBold")]
+[assembly: ExportFont("Gordita.otf", Alias = "Gordita")]
 namespace crypto_stats
 {
     public partial class App : Application
@@ -22,7 +24,7 @@ namespace crypto_stats
             // apply theme
             ThemeManager.LoadTheme();
 
-            MainPage = new NavigationPage(new CoinsPage())
+            MainPage = new NavigationPage(new AggregatePage())
             {
                 BarTextColor = Color.FromHex("#E19832")
             };
@@ -34,7 +36,7 @@ namespace crypto_stats
 
         protected override void OnSleep()
         {
-            CoinsPage.StopBackgroundRefresh();
+            AggregatePage.StopBackgroundRefresh();
         }
 
         protected override void OnResume()

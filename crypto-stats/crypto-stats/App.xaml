@@ -4,6 +4,89 @@
              x:Class="crypto_stats.App">
     <Application.Resources>
         <ResourceDictionary Source="ThemeResources/DarkTheme.xaml" />
+
+        <Style x:Key="PageStyle" TargetType="ContentPage">
+            <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
+            <Setter Property="Padding" Value="15, 10, 15, 5" />
+            <Setter Property="NavigationPage.HasNavigationBar" Value="False" />
+        </Style>
+        
+        <Style x:Key="PageHeaderStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}"></Setter>
+            <Setter Property="FontAttributes" Value="Bold"></Setter>
+            <Setter Property="FontSize" Value="42"></Setter>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+            <Setter Property="FontFamily" Value="GorditaBold"></Setter>
+        </Style>
+        
+        <Style x:Key="PageHeaderButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}"></Setter>
+            <Setter Property="FontSize" Value="25"></Setter>
+            <Setter Property="VerticalOptions" Value="Center"></Setter>
+            <Setter Property="FontFamily" Value="FAS"></Setter>
+            <Setter Property="HeightRequest" Value="47"></Setter>
+            <Setter Property="WidthRequest" Value="70"></Setter>
+            <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+        </Style>
+        
+        <Style x:Key="SearchBarStyle" TargetType="SearchBar">
+            <Setter Property="BackgroundColor" Value="{DynamicResource SearchBarBackground}"></Setter>
+            <Setter Property="TextColor" Value="{DynamicResource SearchTextColour}"></Setter>
+            <Setter Property="Placeholder" Value="Search..."></Setter>
+            <Setter Property="HeightRequest" Value="40"></Setter>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+            <Setter Property="FontFamily" Value="Gordita"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="Margin" Value="0, 10, 0, 10"></Setter>
+        </Style>
+        
+        <Style x:Key="ProgressStyle" TargetType="ActivityIndicator">
+            <Setter Property="HorizontalOptions" Value="Center"></Setter>
+            <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+            <Setter Property="HeightRequest" Value="35"></Setter>
+            <Setter Property="WidthRequest" Value="35"></Setter>
+            <Setter Property="IsEnabled" Value="True"></Setter>
+            <Setter Property="IsRunning" Value="True"></Setter>
+            <Setter Property="IsVisible" Value="True"></Setter>
+            <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+            <Setter Property="Color" Value="{DynamicResource PrimaryColor}"></Setter>
+        </Style>
+        
+        <Style x:Key="ListStyle" TargetType="ListView">
+            <Setter Property="HorizontalOptions" Value="Fill"></Setter>
+            <Setter Property="VerticalOptions" Value="FillAndExpand"></Setter>
+            <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+            <Setter Property="IsPullToRefreshEnabled" Value="True"></Setter>
+            <Setter Property="SelectionMode" Value="None"></Setter>
+            <Setter Property="HasUnevenRows" Value="True"></Setter>
+            <Setter Property="IsVisible" Value="False"></Setter>
+        </Style>
+        
+        <Style x:Key="SubTextStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource SubTextColor}"></Setter>
+            <Setter Property="FontFamily" Value="Gordita"></Setter>
+        </Style>
+        
+        <Style x:Key="MainTextStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"></Setter>
+            <Setter Property="FontFamily" Value="GorditaBold"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+        
+        <Style x:Key="CurrentPriceTextStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"></Setter>
+            <Setter Property="FontFamily" Value="Gordita"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="HorizontalTextAlignment" Value="End"></Setter>
+            <Setter Property="VerticalOptions" Value="Center"></Setter>
+        </Style>
+        
+        <Style x:Key="PriceChangeTextStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="GorditaBold"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="HorizontalTextAlignment" Value="End"></Setter>
+            <Setter Property="VerticalOptions" Value="Center"></Setter>
+        </Style>
         
         <Style x:Key="PrimaryHeaderStyle" TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"></Setter>
@@ -17,10 +100,6 @@
         
         <Style x:Key="SecondaryTextStyle" TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource SubTextColor}"></Setter>
-        </Style>
-        
-        <Style x:Key="PageStyle" TargetType="ContentPage">
-            <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}"></Setter>
         </Style>
         
         <Style TargetType="NavigationPage">

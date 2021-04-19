@@ -2,7 +2,6 @@
 using System.Linq;
 using crypto_stats.Models.View;
 using crypto_stats.Utils;
-using Plugin.Toast;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -31,8 +30,7 @@ namespace crypto_stats.Views
             {
                 var theme = (ThemeManager.Themes) (cmbTheme.SelectedIndex);
                 ThemeManager.ChangeTheme(theme);
-                CrossToastPopUp.Current.ShowCustomToast($"{theme.ToString()} theme set successfully.", "#E19832",
-                    "#000000");
+                Toasts.DisplaySuccess($"{theme.ToString()} theme set successfully.");
             }
         }
 

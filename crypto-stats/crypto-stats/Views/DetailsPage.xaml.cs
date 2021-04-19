@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using crypto_stats.Models.Data;
+using crypto_stats.Models.Extensions;
 using crypto_stats.Services;
 using crypto_stats.Utils;
 using Microcharts;
@@ -10,24 +11,24 @@ using Xamarin.Forms.Xaml;
 namespace crypto_stats.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CoinDetailsPage : ContentPage
+    public partial class DetailsPage : ContentPage
     {
-        private readonly CoinStatsService _service = new CoinStatsService();
-        private readonly Coin _coin;
+        private readonly CryptoStatsService _service = new CryptoStatsService();
+        private readonly Crypto _crypto;
 
-        public CoinDetailsPage(Coin coin)
+        public DetailsPage(Crypto crypto)
         {
             InitializeComponent();
-            _coin = coin;
+            _crypto = crypto;
         }
 
         protected override async void OnAppearing()
         {
-            BindingContext = _coin;
+            BindingContext = _crypto;
 
             // pull and display chart
-            var extendedHistory = await _service.GetExtendedHistoryAsync(_coin.Id);
-            var entries = extendedHistory.OrderedData
+            var extendedHistory = await _service.GetExtendedHistoryAsync(_crypto.Id);
+            var entries = extendedHistory.GetOrdered()
                 .Select(x =>
                 {
                     float.TryParse(x.PriceUsd, out var price);

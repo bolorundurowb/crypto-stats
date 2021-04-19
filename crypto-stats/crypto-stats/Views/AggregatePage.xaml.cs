@@ -4,21 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using crypto_stats.Models.Data;
 using crypto_stats.Services;
-using Plugin.Toast;
+using crypto_stats.Utils;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace crypto_stats.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CoinsPage : ContentPage
+    public partial class AggregatePage : ContentPage
     {
         private const int RefreshIntervalInMinutes = 3;
-        private readonly CoinStatsService _service = new CoinStatsService();
-        private List<Coin> _cryptoStats = new List<Coin>();
+        private readonly CryptoStatsService _service = new CryptoStatsService();
+        private List<Crypto> _cryptoStats = new List<Crypto>();
         private static bool _shouldContinue;
 
-        public CoinsPage()
+        public AggregatePage()
         {
             InitializeComponent();
         }
@@ -69,8 +69,8 @@ namespace crypto_stats.Views
 
         private async void ViewCoinDetails(object sender, ItemTappedEventArgs e)
         {
-            var coin = e.Item as Coin;
-            await Navigation.PushAsync(new CoinDetailsPage(coin));
+            var coin = e.Item as Crypto;
+            await Navigation.PushAsync(new DetailsPage(coin));
         }
 
         private async void ViewSettingsPage(object sender, EventArgs e)
@@ -99,7 +99,7 @@ namespace crypto_stats.Views
             BindDataToUi(filteredCryptoStats);
         }
 
-        private void BindDataToUi(IEnumerable<Coin> data)
+        private void BindDataToUi(IEnumerable<Crypto> data)
         {
             lstCryptoStats.ItemsSource = data;
         }
@@ -112,13 +112,13 @@ namespace crypto_stats.Views
                 Task.Run(async () =>
                 {
                     // pull latest data
-                    var service = new CoinStatsService();
+                    var service = new CryptoStatsService();
                     var coins = await service.GetAllStatsAsync();
 
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         BindDataToUi(coins.Data);
-                        CrossToastPopUp.Current.ShowCustomToast("Coin data refreshed", "#E19832", "#000000");
+                        Toasts.DisplayInfo("Crypto data refreshed.");
                     });
                 });
 
