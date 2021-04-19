@@ -50,10 +50,6 @@ namespace crypto_stats.Views
                 PointSize = 10
             };
             chrtTrend.Chart = chart;
-
-            // display the UI
-            prgLoadingChart.IsVisible = false;
-            chrtTrend.IsVisible = true;
         }
     }
 }
