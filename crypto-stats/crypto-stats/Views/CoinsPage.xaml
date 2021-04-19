@@ -13,22 +13,12 @@
                     Style="{StaticResource PageHeaderStyle}" />
                 <Button
                     Text="&#xf013;"
-                    FontSize="25"
-                    FontFamily="FAS"
-                    VerticalOptions="Center"
-                    TextColor="#E19832"
-                    BackgroundColor="Transparent"
-                    WidthRequest="47"
-                    HeightRequest="70"
+                    Style="{StaticResource PageHeaderButtonStyle}"
                     Clicked="ViewSettingsPage" />
             </StackLayout>
 
             <SearchBar x:Name="txtSearch"
-                       Margin="0, 10, 0, 10"
-                       HorizontalOptions="FillAndExpand"
-                       HeightRequest="40"
-                       Placeholder="Search"
-                       BackgroundColor="{DynamicResource SearchBarBackground}"
+                       Style="{StaticResource SearchBarStyle}"
                        TextChanged="SearchStats" />
 
             <ActivityIndicator x:Name="prgLoading"
