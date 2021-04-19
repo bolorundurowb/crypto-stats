@@ -24,7 +24,7 @@ namespace crypto_stats
             // apply theme
             ThemeManager.LoadTheme();
 
-            MainPage = new NavigationPage(new CoinsPage())
+            MainPage = new NavigationPage(new AggregatePage())
             {
                 BarTextColor = Color.FromHex("#E19832")
             };
@@ -36,7 +36,7 @@ namespace crypto_stats
 
         protected override void OnSleep()
         {
-            CoinsPage.StopBackgroundRefresh();
+            AggregatePage.StopBackgroundRefresh();
         }
 
         protected override void OnResume()

@@ -5,7 +5,7 @@ using crypto_stats.Models.Data;
 
 namespace crypto_stats.Services
 {
-    public class CoinStatsService
+    public class CryptoStatsService
     {
         private const string ApiUrl = "https://api.coincap.io/v2/assets";
         private static readonly HttpClient Client = new HttpClient();

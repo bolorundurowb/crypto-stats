@@ -10,12 +10,12 @@ using Xamarin.Forms.Xaml;
 namespace crypto_stats.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CoinDetailsPage : ContentPage
+    public partial class DetailsPage : ContentPage
     {
-        private readonly CoinStatsService _service = new CoinStatsService();
+        private readonly CryptoStatsService _service = new CryptoStatsService();
         private readonly Coin _coin;
 
-        public CoinDetailsPage(Coin coin)
+        public DetailsPage(Coin coin)
         {
             InitializeComponent();
             _coin = coin;
