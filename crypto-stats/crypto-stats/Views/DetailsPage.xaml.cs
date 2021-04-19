@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using crypto_stats.Models.Data;
+using crypto_stats.Models.Extensions;
 using crypto_stats.Services;
 using crypto_stats.Utils;
 using Microcharts;
@@ -27,7 +28,7 @@ namespace crypto_stats.Views
 
             // pull and display chart
             var extendedHistory = await _service.GetExtendedHistoryAsync(_crypto.Id);
-            var entries = extendedHistory.OrderedData
+            var entries = extendedHistory.GetOrdered()
                 .Select(x =>
                 {
                     float.TryParse(x.PriceUsd, out var price);
