@@ -45,19 +45,14 @@
                             Grid.Row="0"
                             Grid.Column="1"
                             Text="{Binding PriceInUsd, StringFormat='${0:N}'}"
-                            TextColor="{DynamicResource PrimaryTextColor}"
-                            VerticalOptions="Center"
-                            HorizontalTextAlignment="End"
-                            FontSize="18" />
+                            Style="{StaticResource CurrentPriceTextStyle}" />
 
                         <Label
                             Grid.Row="0"
                             Grid.Column="2"
                             Text="{Binding TwentyFourHourPercentageChange, StringFormat='{0:+0.##;-0.##;+#.##;-#.##;0}%'}"
                             TextColor="{Binding TwentyFourHourChangeColour}"
-                            VerticalOptions="Center"
-                            HorizontalTextAlignment="End"
-                            FontSize="18" />
+                            Style="{StaticResource CurrentPriceTextStyle}" />
                     </Grid>
                 </ViewCell>
             </DataTemplate>
