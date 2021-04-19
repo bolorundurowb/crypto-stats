@@ -28,18 +28,17 @@
                             <StackLayout
                                 Orientation="Horizontal">
                                 <Label
+                                    VerticalOptions="End"
                                     Text="{Binding Rank}"
-                                    TextColor="{DynamicResource SubTextColor}"
-                                    VerticalOptions="End" />
+                                    Style="{StaticResource SubTextStyle}" />
                                 <Label
                                     Text="{Binding Symbol}"
-                                    TextColor="{DynamicResource PrimaryTextColor}"
-                                    FontSize="20" />
+                                    Style="{StaticResource MainTextStyle}" />
                             </StackLayout>
 
                             <Label
                                 Text="{Binding Name}"
-                                TextColor="{DynamicResource SubTextColor}" />
+                                Style="{StaticResource SubTextStyle}" />
                         </StackLayout>
 
                         <Label

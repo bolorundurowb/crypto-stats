@@ -35,7 +35,8 @@
       <None Remove="Resources\Fonts\GorditaBold.otf" />
       <EmbeddedResource Include="Resources\Fonts\GorditaBold.otf" />
       <None Remove="Resources\Fonts\GorditaLight.otf" />
-      <EmbeddedResource Include="Resources\Fonts\GorditaLight.otf" />
+      <None Remove="Resources\Fonts\Gordita.otf" />
+      <EmbeddedResource Include="Resources\Fonts\Gordita.otf" />
     </ItemGroup>
 
     <ItemGroup>

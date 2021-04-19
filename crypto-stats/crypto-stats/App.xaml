@@ -62,6 +62,17 @@
             <Setter Property="IsVisible" Value="False"></Setter>
         </Style>
         
+        <Style x:Key="SubTextStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource SubTextColor}"></Setter>
+            <Setter Property="FontFamily" Value="Gordita"></Setter>
+        </Style>
+        
+        <Style x:Key="MainTextStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"></Setter>
+            <Setter Property="FontFamily" Value="GorditaBold"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+        
         <Style x:Key="PrimaryHeaderStyle" TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"></Setter>
             <Setter Property="FontAttributes" Value="Bold"></Setter>
