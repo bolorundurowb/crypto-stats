@@ -52,7 +52,7 @@
                             Grid.Column="2"
                             Text="{Binding TwentyFourHourPercentageChange, StringFormat='{0:+0.##;-0.##;+#.##;-#.##;0}%'}"
                             TextColor="{Binding TwentyFourHourChangeColour}"
-                            Style="{StaticResource CurrentPriceTextStyle}" />
+                            Style="{StaticResource PriceChangeTextStyle}" />
                     </Grid>
                 </ViewCell>
             </DataTemplate>

@@ -1,18 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="crypto_stats.ThemeResources.DarkTheme">
-    <Color x:Key="PrimaryColor">#E19832</Color>   
-    <Color x:Key="PrimaryDarkColor">#E19832</Color>  
+
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="d"
+                    x:Class="crypto_stats.ThemeResources.DarkTheme">
+    <Color x:Key="PrimaryColor">#E19832</Color>
     <Color x:Key="PageBackgroundColor">#000000</Color>
     <Color x:Key="PrimaryTextColor">#FFFFFF</Color>
-    <Color x:Key="SecondaryTextColor">#6e6e6e</Color>
-    <Color x:Key="SubTextColor">#6A6A6A</Color>
+    <Color x:Key="SubTextColor">#8F8F8F</Color>
+    <Color x:Key="SearchTextColour">#FFFFFF</Color>
+    <Color x:Key="SearchBarBackground">#2E2E30</Color>
+
+    <Color x:Key="PrimaryDarkColor">#E19832</Color>
     <Color x:Key="SuccessColor">#0EDD7B</Color>
     <Color x:Key="ErrorColor">#DC4035</Color>
-    <Color x:Key="SearchBarBackground">#2E2E30</Color>
-    <Color x:Key="SearchTextColour">#FFFFFF</Color>
+    <Color x:Key="SecondaryTextColor">#6e6e6e</Color>
 </ResourceDictionary>
