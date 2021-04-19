@@ -2,8 +2,8 @@
 
 namespace crypto_stats.Models.Data
 {
-    public class Coins
+    public class DataCollection<T>
     {
-        public List<Coin> Data { get; set; }
+        public List<T> Data { get; set; }
     }
 }

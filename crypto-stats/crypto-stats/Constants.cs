@@ -1,6 +1,6 @@
 ﻿namespace crypto_stats
 {
-    public class Constants
+    public static class Constants
     {
         public const string PositiveColour = "#0EDD7B";
         

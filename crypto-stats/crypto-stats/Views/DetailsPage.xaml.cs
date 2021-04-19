@@ -13,20 +13,20 @@ namespace crypto_stats.Views
     public partial class DetailsPage : ContentPage
     {
         private readonly CryptoStatsService _service = new CryptoStatsService();
-        private readonly Coin _coin;
+        private readonly Crypto _crypto;
 
-        public DetailsPage(Coin coin)
+        public DetailsPage(Crypto crypto)
         {
             InitializeComponent();
-            _coin = coin;
+            _crypto = crypto;
         }
 
         protected override async void OnAppearing()
         {
-            BindingContext = _coin;
+            BindingContext = _crypto;
 
             // pull and display chart
-            var extendedHistory = await _service.GetExtendedHistoryAsync(_coin.Id);
+            var extendedHistory = await _service.GetExtendedHistoryAsync(_crypto.Id);
             var entries = extendedHistory.OrderedData
                 .Select(x =>
                 {

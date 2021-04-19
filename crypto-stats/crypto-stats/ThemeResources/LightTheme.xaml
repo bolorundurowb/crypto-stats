@@ -6,10 +6,10 @@
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     mc:Ignorable="d"
                     x:Class="crypto_stats.ThemeResources.LightTheme">
-    <Color x:Key="PrimaryColor">#E19832</Color>
-    <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
+    <Color x:Key="PrimaryColor">#C37E1D</Color>
+    <Color x:Key="PageBackgroundColor">#FCFCFC</Color>
     <Color x:Key="PrimaryTextColor">#000000</Color>
-    <Color x:Key="SubTextColor">#3e3e3e</Color>
+    <Color x:Key="SubTextColor">#5E5E5E</Color>
     <Color x:Key="SearchTextColour">#000000</Color>
     <Color x:Key="SearchBarBackground">#FEFEFE</Color>
 

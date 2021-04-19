@@ -15,10 +15,10 @@ namespace crypto_stats.Services
             PropertyNameCaseInsensitive = true
         };
 
-        public async Task<Coins> GetAllStatsAsync()
+        public async Task<DataCollection<Crypto>> GetAllStatsAsync()
         {
             var response = await Client.GetStreamAsync(ApiUrl);
-            return await JsonSerializer.DeserializeAsync<Coins>(response, DeserializerOptions);
+            return await JsonSerializer.DeserializeAsync<DataCollection<Crypto>>(response, DeserializerOptions);
         }
 
         public async Task<History> GetHistoryAsync(string id)

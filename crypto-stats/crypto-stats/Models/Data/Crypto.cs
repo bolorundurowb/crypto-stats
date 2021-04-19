@@ -2,7 +2,7 @@
 
 namespace crypto_stats.Models.Data
 {
-    public class Coin
+    public class Crypto
     {
         public string Id { get; set; }
 
