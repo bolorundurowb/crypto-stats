@@ -11,10 +11,5 @@
     <Color x:Key="PrimaryTextColor">#000000</Color>
     <Color x:Key="SubTextColor">#5E5E5E</Color>
     <Color x:Key="SearchTextColour">#000000</Color>
-    <Color x:Key="SearchBarBackground">#FEFEFE</Color>
-
-    <Color x:Key="PrimaryDarkColor">#E19832</Color>
-    <Color x:Key="SecondaryTextColor">#6e6e6e</Color>
-    <Color x:Key="SuccessColor">#0EDD7B</Color>
-    <Color x:Key="ErrorColor">#DC4035</Color>
+    <Color x:Key="SearchBarBackground">#DADADA</Color>
 </ResourceDictionary>
