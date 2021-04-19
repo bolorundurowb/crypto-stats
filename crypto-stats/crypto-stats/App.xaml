@@ -52,6 +52,16 @@
             <Setter Property="Color" Value="{DynamicResource PrimaryColor}"></Setter>
         </Style>
         
+        <Style x:Key="ListStyle" TargetType="ListView">
+            <Setter Property="HorizontalOptions" Value="Fill"></Setter>
+            <Setter Property="VerticalOptions" Value="FillAndExpand"></Setter>
+            <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+            <Setter Property="IsPullToRefreshEnabled" Value="True"></Setter>
+            <Setter Property="SelectionMode" Value="None"></Setter>
+            <Setter Property="HasUnevenRows" Value="True"></Setter>
+            <Setter Property="IsVisible" Value="False"></Setter>
+        </Style>
+        
         <Style x:Key="PrimaryHeaderStyle" TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"></Setter>
             <Setter Property="FontAttributes" Value="Bold"></Setter>

@@ -4,6 +4,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="crypto_stats.Views.CoinsPage"
              Style="{StaticResource PageStyle}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="EntryTemplate">
+                <ViewCell>
+                    <Grid
+                        Padding="0, 10, 0, 10"
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="Transparent">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Orientation="Vertical"
+                            HorizontalOptions="FillAndExpand">
+                            <StackLayout
+                                Orientation="Horizontal">
+                                <Label
+                                    Text="{Binding Rank}"
+                                    TextColor="{DynamicResource SubTextColor}"
+                                    VerticalOptions="End" />
+                                <Label
+                                    Text="{Binding Symbol}"
+                                    TextColor="{DynamicResource PrimaryTextColor}"
+                                    FontSize="20" />
+                            </StackLayout>
+
+                            <Label
+                                Text="{Binding Name}"
+                                TextColor="{DynamicResource SubTextColor}" />
+                        </StackLayout>
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Text="{Binding PriceInUsd, StringFormat='${0:N}'}"
+                            TextColor="{DynamicResource PrimaryTextColor}"
+                            VerticalOptions="Center"
+                            HorizontalTextAlignment="End"
+                            FontSize="18" />
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Text="{Binding TwentyFourHourPercentageChange, StringFormat='{0:+0.##;-0.##;+#.##;-#.##;0}%'}"
+                            TextColor="{Binding TwentyFourHourChangeColour}"
+                            VerticalOptions="Center"
+                            HorizontalTextAlignment="End"
+                            FontSize="18" />
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
             <StackLayout
@@ -25,74 +85,10 @@
                                Style="{StaticResource ProgressStyle}" />
 
             <ListView x:Name="lstCryptoStats"
-                      HorizontalOptions="Fill"
-                      VerticalOptions="FillAndExpand"
-                      BackgroundColor="Transparent"
-                      IsPullToRefreshEnabled="True"
-                      SelectionMode="None"
-                      HasUnevenRows="True"
-                      IsVisible="False"
+                      ItemTemplate="{StaticResource EntryTemplate}"
+                      Style="{StaticResource ListStyle}"
                       Refreshing="OnRefresh"
-                      ItemTapped="ViewCoinDetails">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid
-                                Padding="0, 10, 0, 10"
-                                HorizontalOptions="FillAndExpand"
-                                BackgroundColor="Transparent">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="3*" />
-                                    <ColumnDefinition Width="2*" />
-                                    <ColumnDefinition Width="2*" />
-                                </Grid.ColumnDefinitions>
-                                <StackLayout
-                                    Grid.Row="0"
-                                    Grid.Column="0"
-                                    Orientation="Vertical"
-                                    HorizontalOptions="FillAndExpand">
-                                    <StackLayout
-                                        Orientation="Horizontal">
-                                        <Label
-                                            Text="{Binding Rank}"
-                                            TextColor="{DynamicResource SubTextColor}"
-                                            VerticalOptions="End" />
-                                        <Label
-                                            Text="{Binding Symbol}"
-                                            TextColor="{DynamicResource PrimaryTextColor}"
-                                            FontSize="20" />
-                                    </StackLayout>
-
-                                    <Label
-                                        Text="{Binding Name}"
-                                        TextColor="{DynamicResource SubTextColor}" />
-                                </StackLayout>
-
-                                <Label
-                                    Grid.Row="0"
-                                    Grid.Column="1"
-                                    Text="{Binding PriceInUsd, StringFormat='${0:N}'}"
-                                    TextColor="{DynamicResource PrimaryTextColor}"
-                                    VerticalOptions="Center"
-                                    HorizontalTextAlignment="End"
-                                    FontSize="18" />
-
-                                <Label
-                                    Grid.Row="0"
-                                    Grid.Column="2"
-                                    Text="{Binding TwentyFourHourPercentageChange, StringFormat='{0:+0.##;-0.##;+#.##;-#.##;0}%'}"
-                                    TextColor="{Binding TwentyFourHourChangeColour}"
-                                    VerticalOptions="Center"
-                                    HorizontalTextAlignment="End"
-                                    FontSize="18" />
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                      ItemTapped="ViewCoinDetails" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
