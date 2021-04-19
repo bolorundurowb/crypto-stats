@@ -4,6 +4,20 @@
              x:Class="crypto_stats.App">
     <Application.Resources>
         <ResourceDictionary Source="ThemeResources/DarkTheme.xaml" />
+
+        <Style x:Key="PageStyle" TargetType="ContentPage">
+            <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
+            <Setter Property="Padding" Value="15, 10, 15, 5" />
+            <Setter Property="NavigationPage.HasNavigationBar" Value="False" />
+        </Style>
+        
+        <Style x:Key="PageHeaderStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}"></Setter>
+            <Setter Property="FontAttributes" Value="Bold"></Setter>
+            <Setter Property="FontSize" Value="42"></Setter>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+            <Setter Property="FontFamily" Value="GorditaBold"></Setter>
+        </Style>
         
         <Style x:Key="PrimaryHeaderStyle" TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"></Setter>
@@ -17,10 +31,6 @@
         
         <Style x:Key="SecondaryTextStyle" TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource SubTextColor}"></Setter>
-        </Style>
-        
-        <Style x:Key="PageStyle" TargetType="ContentPage">
-            <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}"></Setter>
         </Style>
         
         <Style TargetType="NavigationPage">

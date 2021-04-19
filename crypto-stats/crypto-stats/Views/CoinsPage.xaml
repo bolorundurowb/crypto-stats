@@ -3,19 +3,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="crypto_stats.Views.CoinsPage"
-             BackgroundColor="{DynamicResource PageBackgroundColor}"
-             Padding="15, 10, 15, 5"
-             NavigationPage.HasNavigationBar="False">
+             Style="{StaticResource PageStyle}">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout
                 Orientation="Horizontal">
                 <Label
                     Text="Crypto Stats"
-                    FontSize="45"
-                    TextColor="#E19832"
-                    HorizontalOptions="FillAndExpand"
-                    FontAttributes="Bold" />
+                    Style="{StaticResource PageHeaderStyle}" />
                 <Button
                     Text="&#xf013;"
                     FontSize="25"
