@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using crypto_stats.Models.Data;
 using crypto_stats.Services;
-using Plugin.Toast;
+using crypto_stats.Utils;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -118,7 +118,7 @@ namespace crypto_stats.Views
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         BindDataToUi(coins.Data);
-                        CrossToastPopUp.Current.ShowCustomToast("Crypto data refreshed", "#E19832", "#000000");
+                        Toasts.DisplayInfo("Crypto data refreshed.");
                     });
                 });
 

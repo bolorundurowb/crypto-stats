@@ -1,3 +1,6 @@
+using Acr.UserDialogs;
+using Xamarin.Forms;
+
 namespace crypto_stats.Utils
 {
     internal static class Toasts
