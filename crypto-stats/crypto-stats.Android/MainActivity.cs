@@ -42,10 +42,6 @@ namespace crypto_stats.Android
                 Window.SetNavigationBarColor(
                     theme == ThemeManager.Themes.Dark ? Color.Black : new Color(175, 175, 175));
             }
-
-            // report crashes
-            Fabric.Fabric.With(this, new Crashlytics.Crashlytics());
-            Crashlytics.Crashlytics.HandleManagedExceptions();
         }
     }
 }
