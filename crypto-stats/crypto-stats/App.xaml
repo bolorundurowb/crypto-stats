@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              x:Class="crypto_stats.App">
     <Application.Resources>
         <ResourceDictionary Source="ThemeResources/DarkTheme.xaml" />
@@ -88,23 +89,25 @@
             <Setter Property="VerticalOptions" Value="Center"></Setter>
         </Style>
         
-        <Style x:Key="PrimaryHeaderStyle" TargetType="Label">
+        <Style x:Key="DetailHeaderStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="Gordita"></Setter>
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}"></Setter>
+            <Setter Property="TextTransform" Value="Uppercase"></Setter>
+            <Setter Property="FontSize" Value="11"></Setter>
+        </Style>
+        
+        <Style x:Key="DetailContentStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="GorditaBold"></Setter>
             <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"></Setter>
-            <Setter Property="FontAttributes" Value="Bold"></Setter>
-            <Setter Property="FontSize" Value="45"></Setter>
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="Margin" Value="0, 5, 0, 10"></Setter>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
         </Style>
         
-        <Style x:Key="PrimaryTextStyle" TargetType="Label">
-            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"></Setter>
-        </Style>
-        
-        <Style x:Key="SecondaryTextStyle" TargetType="Label">
-            <Setter Property="TextColor" Value="{DynamicResource SubTextColor}"></Setter>
-        </Style>
-        
-        <Style TargetType="NavigationPage">
-            <Setter Property="BarBackgroundColor" Value="{DynamicResource PageBackgroundColor}"/>
-            <Setter Property="BarTextColor" Value="{DynamicResource PrimaryColor}"/>
+        <Style x:Key="DetailChartStyle" TargetType="microcharts:ChartView">
+            <Setter Property="Margin" Value="0, 10, 0, 5"></Setter>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+            <Setter Property="HeightRequest" Value="150"></Setter>
         </Style>
     </Application.Resources>
 </Application>
