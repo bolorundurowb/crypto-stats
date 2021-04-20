@@ -109,5 +109,13 @@
             <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
             <Setter Property="HeightRequest" Value="150"></Setter>
         </Style>
+        
+        <Style x:Key="ExpanderHeaderLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="FAS"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontAttributes" Value="Bold"></Setter>
+            <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}"></Setter>
+        </Style>
     </Application.Resources>
 </Application>
