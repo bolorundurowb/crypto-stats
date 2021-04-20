@@ -28,8 +28,8 @@
                             Style="{StaticResource ExpanderHeaderLabelStyle}" />
                         <Label
                             Text="Theme"
-                            FontSize="18"
-                            FontFamily="Gordita"
+                            FontSize="16"
+                            FontFamily="GorditaBold"
                             HorizontalTextAlignment="Center"
                             TextColor="{DynamicResource PrimaryTextColor}"
                             Grid.Row="0"
@@ -61,10 +61,9 @@
                         Text="MODE"
                         Style="{StaticResource DetailHeaderStyle}" />
                     <Picker x:Name="cmbTheme"
-                            HeightRequest="50"
                             Title="Choose Theme"
                             ItemDisplayBinding="{Binding Name}"
-                            TextColor="{DynamicResource PrimaryTextColor}"
+                            Style="{StaticResource PickerStyle}"
                             SelectedIndexChanged="ChangeTheme" />
                 </StackLayout>
             </views:Expander>

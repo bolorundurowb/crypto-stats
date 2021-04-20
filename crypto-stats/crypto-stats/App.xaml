@@ -117,5 +117,11 @@
             <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
             <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}"></Setter>
         </Style>
+        
+        <Style x:Key="PickerStyle" TargetType="Picker">
+            <Setter Property="FontFamily" Value="Gordita"></Setter>
+            <Setter Property="HeightRequest" Value="50"></Setter>
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"></Setter>
+        </Style>
     </Application.Resources>
 </Application>
