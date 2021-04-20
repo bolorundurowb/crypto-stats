@@ -8,8 +8,7 @@
 
         <Style x:Key="PageStyle" TargetType="ContentPage">
             <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
-            <Setter Property="Padding" Value="15, 10, 15, 5" />
-            <Setter Property="NavigationPage.HasNavigationBar" Value="False" />
+            <Setter Property="Padding" Value="15, 5, 15, 5" />
         </Style>
         
         <Style x:Key="PageHeaderStyle" TargetType="Label">
@@ -22,11 +21,12 @@
         
         <Style x:Key="PageHeaderButtonStyle" TargetType="Button">
             <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}"></Setter>
-            <Setter Property="FontSize" Value="25"></Setter>
+            <Setter Property="FontSize" Value="23"></Setter>
             <Setter Property="VerticalOptions" Value="Center"></Setter>
+            <Setter Property="HorizontalOptions" Value="End"></Setter>
             <Setter Property="FontFamily" Value="FAS"></Setter>
-            <Setter Property="HeightRequest" Value="47"></Setter>
-            <Setter Property="WidthRequest" Value="70"></Setter>
+            <Setter Property="HeightRequest" Value="55"></Setter>
+            <Setter Property="WidthRequest" Value="60"></Setter>
             <Setter Property="BackgroundColor" Value="Transparent"></Setter>
         </Style>
         
@@ -108,6 +108,20 @@
             <Setter Property="Margin" Value="0, 10, 0, 5"></Setter>
             <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
             <Setter Property="HeightRequest" Value="150"></Setter>
+        </Style>
+        
+        <Style x:Key="ExpanderHeaderLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="FAS"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontAttributes" Value="Bold"></Setter>
+            <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}"></Setter>
+        </Style>
+        
+        <Style x:Key="PickerStyle" TargetType="Picker">
+            <Setter Property="FontFamily" Value="Gordita"></Setter>
+            <Setter Property="HeightRequest" Value="50"></Setter>
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"></Setter>
         </Style>
     </Application.Resources>
 </Application>

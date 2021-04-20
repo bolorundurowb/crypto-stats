@@ -2,15 +2,15 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="http://xamarin.com/schemas/2020/toolkit"
              x:Class="crypto_stats.Views.SettingsPage"
              Title="Settings"
-             BackgroundColor="{DynamicResource PageBackgroundColor}"
-             Padding="15, 10, 15, 5">
+             Style="{StaticResource PageStyle}">
     <ContentPage.Content>
         <StackLayout>
-            <Expander
+            <views:Expander
                 Margin="0, 10, 0, 0">
-                <Expander.Header>
+                <views:Expander.Header>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50" />
@@ -22,48 +22,51 @@
                         </Grid.ColumnDefinitions>
                         <Label
                             Text="&#xf53f;"
-                            FontFamily="FAS"
-                            TextColor="{DynamicResource PrimaryColor}"
-                            FontSize="20"
-                            VerticalTextAlignment="Center"
                             HorizontalTextAlignment="Start"
                             Grid.Row="0"
-                            Grid.Column="0" />
+                            Grid.Column="0"
+                            Style="{StaticResource ExpanderHeaderLabelStyle}" />
                         <Label
                             Text="Theme"
-                            FontSize="18"
-                            FontAttributes="Bold"
-                            VerticalTextAlignment="Center"
+                            FontSize="16"
+                            FontFamily="GorditaBold"
                             HorizontalTextAlignment="Center"
                             TextColor="{DynamicResource PrimaryTextColor}"
                             Grid.Row="0"
-                            Grid.Column="1" />
+                            Grid.Column="1"
+                            Style="{StaticResource ExpanderHeaderLabelStyle}" />
                         <Label
                             Text="&#xf078;"
-                            FontFamily="FAS"
-                            TextColor="{DynamicResource PrimaryColor}"
-                            FontSize="20"
                             HorizontalTextAlignment="Center"
-                            VerticalTextAlignment="Center"
                             Grid.Row="0"
-                            Grid.Column="2" />
+                            Grid.Column="2"
+                            Style="{StaticResource ExpanderHeaderLabelStyle}">
+                            <Label.Triggers>
+                                <DataTrigger
+                                    TargetType="Label"
+                                    Value="True"
+                                    Binding="{Binding Source={RelativeSource AncestorType={x:Type views:Expander}}, Path=IsExpanded}">
+                                    <Setter Property="Text"
+                                            Value="&#xf077;" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
                     </Grid>
-                </Expander.Header>
+                </views:Expander.Header>
                 <StackLayout
                     Margin="0, 10, 0, 0"
                     HorizontalOptions="Fill"
                     Orientation="Vertical">
                     <Label
-                        TextColor="#E19832"
-                        Text="MODE" />
+                        Text="MODE"
+                        Style="{StaticResource DetailHeaderStyle}" />
                     <Picker x:Name="cmbTheme"
-                            HeightRequest="50"
                             Title="Choose Theme"
                             ItemDisplayBinding="{Binding Name}"
-                            TextColor="{DynamicResource PrimaryTextColor}"
+                            Style="{StaticResource PickerStyle}"
                             SelectedIndexChanged="ChangeTheme" />
                 </StackLayout>
-            </Expander>
+            </views:Expander>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
