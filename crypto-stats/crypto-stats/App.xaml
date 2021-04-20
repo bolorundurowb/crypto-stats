@@ -9,7 +9,6 @@
         <Style x:Key="PageStyle" TargetType="ContentPage">
             <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
             <Setter Property="Padding" Value="15, 10, 15, 5" />
-            <Setter Property="NavigationPage.HasNavigationBar" Value="False" />
         </Style>
         
         <Style x:Key="PageHeaderStyle" TargetType="Label">
