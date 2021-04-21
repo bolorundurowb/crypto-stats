@@ -22,9 +22,8 @@
         <!-- You can also set colorControlNormal, colorControlActivated
              colorControlHighlight and colorSwitchThumbNormal. -->
         <item name="windowActionModeOverlay">true</item>
-
         <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
-        <item name="android:fontFamily">GorditaBold</item>
+        <item name="android:fontFamily">@font/gordita</item>
     </style>
 
     <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">

@@ -13,12 +13,6 @@ namespace crypto_stats
     {
         public App()
         {
-            // set experimental flags
-            Device.SetFlags(new []
-            {
-                "Expander_Experimental"
-            });
-            
             InitializeComponent();
 
             // apply theme

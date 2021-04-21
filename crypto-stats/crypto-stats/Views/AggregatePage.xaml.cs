@@ -13,7 +13,6 @@ namespace crypto_stats.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AggregatePage : ContentPage
     {
-        private const int RefreshIntervalInMinutes = 3;
         private readonly CryptoStatsService _service = new CryptoStatsService();
         private List<Crypto> _cryptoStats = new List<Crypto>();
         private static bool _shouldContinue;
@@ -107,8 +106,15 @@ namespace crypto_stats.Views
         private void StartBackgroundRefresh()
         {
             _shouldContinue = true;
-            Device.StartTimer(new TimeSpan(0, RefreshIntervalInMinutes, 0), () =>
+            var refreshInterval = SyncManager.GetSyncFrequencyInMinutes();
+            Device.StartTimer(new TimeSpan(0, refreshInterval, 0), () =>
             {
+                // if the process is to be cancelled then honour that
+                if (!_shouldContinue)
+                {
+                    return _shouldContinue;
+                }
+                
                 Task.Run(async () =>
                 {
                     // pull latest data

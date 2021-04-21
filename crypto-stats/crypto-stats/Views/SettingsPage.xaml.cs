@@ -15,13 +15,15 @@ namespace crypto_stats.Views
             InitializeComponent();
 
             // set the picker details
-            cmbTheme.ItemsSource = Enum.GetValues(typeof(ThemeManager.Themes))
-                .Cast<ThemeManager.Themes>()
-                .Select(x => new EnumViewModel(x))
-                .OrderBy(x => x.Id)
-                .ToList();
+            cmbTheme.ItemsSource = Constants.ThemeOptions;
+            cmbRefreshFreq.ItemsSource = Constants.RefreshFrequencies;
+        }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             cmbTheme.SelectedIndex = GetCurrentThemeIndex();
+            cmbRefreshFreq.SelectedIndex = SyncManager.GetIndexOfSyncSelection();
         }
 
         private void ChangeTheme(object sender, EventArgs e)
@@ -32,6 +34,12 @@ namespace crypto_stats.Views
                 ThemeManager.ChangeTheme(theme);
                 Toasts.DisplaySuccess($"{theme.ToString()} theme set successfully.");
             }
+        }
+
+        private void ChangeRefreshFrequency(object sender, EventArgs e)
+        {
+            var freq = Constants.RefreshFrequencies[cmbRefreshFreq.SelectedIndex];
+            SyncManager.PersistSelection(freq);
         }
 
         private int GetCurrentThemeIndex()
