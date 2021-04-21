@@ -67,6 +67,65 @@
                             SelectedIndexChanged="ChangeTheme" />
                 </StackLayout>
             </views:Expander>
+            <views:Expander
+                Margin="0, 10, 0, 0">
+                <views:Expander.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="20" />
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Text="&#xf53f;"
+                            HorizontalTextAlignment="Start"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Style="{StaticResource ExpanderHeaderLabelStyle}" />
+                        <Label
+                            Text="Theme"
+                            FontSize="16"
+                            FontFamily="GorditaBold"
+                            HorizontalTextAlignment="Center"
+                            TextColor="{DynamicResource PrimaryTextColor}"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Style="{StaticResource ExpanderHeaderLabelStyle}" />
+                        <Label
+                            Text="&#xf078;"
+                            HorizontalTextAlignment="Center"
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Style="{StaticResource ExpanderHeaderLabelStyle}">
+                            <Label.Triggers>
+                                <DataTrigger
+                                    TargetType="Label"
+                                    Value="True"
+                                    Binding="{Binding Source={RelativeSource AncestorType={x:Type views:Expander}}, Path=IsExpanded}">
+                                    <Setter Property="Text"
+                                            Value="&#xf077;" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </Grid>
+                </views:Expander.Header>
+                <StackLayout
+                    Margin="0, 10, 0, 0"
+                    HorizontalOptions="Fill"
+                    Orientation="Vertical">
+                    <Label
+                        Text="MODE"
+                        Style="{StaticResource DetailHeaderStyle}" />
+                    <Picker
+                            Title="Choose Theme"
+                            ItemDisplayBinding="{Binding Name}"
+                            Style="{StaticResource PickerStyle}"
+                            SelectedIndexChanged="ChangeTheme" />
+                </StackLayout>
+            </views:Expander>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
