@@ -25,22 +25,17 @@
                             HorizontalTextAlignment="Start"
                             Grid.Row="0"
                             Grid.Column="0"
-                            Style="{StaticResource ExpanderHeaderLabelStyle}" />
+                            Style="{StaticResource ExpanderHeaderIconStyle}" />
                         <Label
                             Text="Theme"
-                            FontSize="16"
-                            FontFamily="GorditaBold"
-                            HorizontalTextAlignment="Center"
-                            TextColor="{DynamicResource PrimaryTextColor}"
                             Grid.Row="0"
                             Grid.Column="1"
                             Style="{StaticResource ExpanderHeaderLabelStyle}" />
                         <Label
                             Text="&#xf078;"
-                            HorizontalTextAlignment="Center"
                             Grid.Row="0"
                             Grid.Column="2"
-                            Style="{StaticResource ExpanderHeaderLabelStyle}">
+                            Style="{StaticResource ExpanderHeaderIconStyle}">
                             <Label.Triggers>
                                 <DataTrigger
                                     TargetType="Label"
@@ -80,26 +75,21 @@
                             <ColumnDefinition Width="20" />
                         </Grid.ColumnDefinitions>
                         <Label
-                            Text="&#xf53f;"
+                            Text="&#xf021;"
                             HorizontalTextAlignment="Start"
                             Grid.Row="0"
                             Grid.Column="0"
-                            Style="{StaticResource ExpanderHeaderLabelStyle}" />
+                            Style="{StaticResource ExpanderHeaderIconStyle}" />
                         <Label
-                            Text="Theme"
-                            FontSize="16"
-                            FontFamily="GorditaBold"
-                            HorizontalTextAlignment="Center"
-                            TextColor="{DynamicResource PrimaryTextColor}"
+                            Text="Network"
                             Grid.Row="0"
                             Grid.Column="1"
                             Style="{StaticResource ExpanderHeaderLabelStyle}" />
                         <Label
                             Text="&#xf078;"
-                            HorizontalTextAlignment="Center"
                             Grid.Row="0"
                             Grid.Column="2"
-                            Style="{StaticResource ExpanderHeaderLabelStyle}">
+                            Style="{StaticResource ExpanderHeaderIconStyle}">
                             <Label.Triggers>
                                 <DataTrigger
                                     TargetType="Label"
@@ -117,10 +107,10 @@
                     HorizontalOptions="Fill"
                     Orientation="Vertical">
                     <Label
-                        Text="MODE"
+                        Text="Refresh Frequency"
                         Style="{StaticResource DetailHeaderStyle}" />
                     <Picker
-                            Title="Choose Theme"
+                            Title="Change Refresh Frequency"
                             ItemDisplayBinding="{Binding Name}"
                             Style="{StaticResource PickerStyle}"
                             SelectedIndexChanged="ChangeTheme" />

@@ -20,7 +20,11 @@ namespace crypto_stats.Views
                 .Select(x => new EnumViewModel(x))
                 .OrderBy(x => x.Id)
                 .ToList();
+        }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             cmbTheme.SelectedIndex = GetCurrentThemeIndex();
         }
 
