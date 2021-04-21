@@ -56,7 +56,6 @@
                         Text="MODE"
                         Style="{StaticResource DetailHeaderStyle}" />
                     <Picker x:Name="cmbTheme"
-                            Title="Choose Theme"
                             ItemDisplayBinding="{Binding Name}"
                             Style="{StaticResource PickerStyle}"
                             SelectedIndexChanged="ChangeTheme" />
@@ -110,7 +109,6 @@
                         Text="Refresh Frequency"
                         Style="{StaticResource DetailHeaderStyle}" />
                     <Picker x:Name="cmbRefreshFreq"
-                            Title="Change Refresh Frequency"
                             ItemDisplayBinding="{Binding Name}"
                             Style="{StaticResource PickerStyle}"
                             SelectedIndexChanged="ChangeRefreshFrequency" />

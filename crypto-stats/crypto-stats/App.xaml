@@ -135,6 +135,9 @@
             <Setter Property="FontFamily" Value="Gordita" />
             <Setter Property="HeightRequest" Value="50" />
             <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="Title" Value="Choose" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="Margin" Value="0,0,0,10" />
         </Style>
     </Application.Resources>
 </Application>
