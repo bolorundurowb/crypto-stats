@@ -109,11 +109,11 @@
                     <Label
                         Text="Refresh Frequency"
                         Style="{StaticResource DetailHeaderStyle}" />
-                    <Picker
+                    <Picker x:Name="cmbRefreshFreq"
                             Title="Change Refresh Frequency"
                             ItemDisplayBinding="{Binding Name}"
                             Style="{StaticResource PickerStyle}"
-                            SelectedIndexChanged="ChangeTheme" />
+                            SelectedIndexChanged="ChangeRefreshFrequency" />
                 </StackLayout>
             </views:Expander>
         </StackLayout>
