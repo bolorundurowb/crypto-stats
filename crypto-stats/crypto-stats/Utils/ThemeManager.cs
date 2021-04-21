@@ -49,7 +49,7 @@ namespace crypto_stats.Utils
 
         public static Themes CurrentTheme()
         {
-            return (Themes) Preferences.Get("SelectedTheme", (int) Themes.Dark);
+            return (Themes) Preferences.Get("CryptoStats_SelectedTheme", (int) Themes.Dark);
         }
     }
 }
