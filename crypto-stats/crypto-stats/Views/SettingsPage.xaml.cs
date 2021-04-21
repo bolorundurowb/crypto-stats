@@ -23,6 +23,7 @@ namespace crypto_stats.Views
         {
             base.OnAppearing();
             cmbTheme.SelectedIndex = GetCurrentThemeIndex();
+            cmbRefreshFreq.SelectedIndex = SyncManager.GetIndexOfSyncSelection();
         }
 
         private void ChangeTheme(object sender, EventArgs e)
@@ -37,7 +38,8 @@ namespace crypto_stats.Views
 
         private void ChangeRefreshFrequency(object sender, EventArgs e)
         {
-            
+            var freq = Constants.RefreshFrequencies[cmbRefreshFreq.SelectedIndex];
+            SyncManager.PersistSelection(freq);
         }
 
         private int GetCurrentThemeIndex()
