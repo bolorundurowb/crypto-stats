@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="crypto_stats.App">
+    <Application.Resources>
+        <ResourceDictionary Source="ThemeResources/DarkTheme.xaml" />
+
+        <Style x:Key="PageStyle" TargetType="ContentPage">
+            <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
+            <Setter Property="Padding">
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="Android" Value="15, 10, 15, 5" />
+                    <On Platform="iOS" Value="15, 25, 15, 5" />
+                </OnPlatform>
+            </Setter>
+        </Style>
+
+        <Style x:Key="PageHeaderStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="42" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="FontFamily" Value="GorditaBold" />
+        </Style>
+
+        <Style x:Key="PageHeaderButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+            <Setter Property="FontSize" Value="23" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="HorizontalOptions" Value="End" />
+            <Setter Property="FontFamily" Value="FAS" />
+            <Setter Property="HeightRequest" Value="55" />
+            <Setter Property="WidthRequest" Value="60" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+        </Style>
+
+        <Style x:Key="SearchBarStyle" TargetType="SearchBar">
+            <Setter Property="BackgroundColor" Value="{DynamicResource SearchBarBackground}" />
+            <Setter Property="TextColor" Value="{DynamicResource SearchTextColour}" />
+            <Setter Property="Placeholder" Value="Search..." />
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="FontFamily" Value="Gordita" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="0, 10, 0, 10" />
+        </Style>
+
+        <Style x:Key="ProgressStyle" TargetType="ActivityIndicator">
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="HeightRequest" Value="35" />
+            <Setter Property="WidthRequest" Value="35" />
+            <Setter Property="IsEnabled" Value="True" />
+            <Setter Property="IsRunning" Value="True" />
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="Color" Value="{DynamicResource PrimaryColor}" />
+        </Style>
+
+        <Style x:Key="ListStyle" TargetType="ListView">
+            <Setter Property="HorizontalOptions" Value="Fill" />
+            <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="IsPullToRefreshEnabled" Value="True" />
+            <Setter Property="SelectionMode" Value="None" />
+            <Setter Property="HasUnevenRows" Value="True" />
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+
+        <Style x:Key="SubTextStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource SubTextColor}" />
+            <Setter Property="FontFamily" Value="Gordita" />
+        </Style>
+
+        <Style x:Key="MainTextStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="FontFamily" Value="GorditaBold" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+
+        <Style x:Key="CurrentPriceTextStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="FontFamily" Value="Gordita" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="HorizontalTextAlignment" Value="End" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
+        <Style x:Key="PriceChangeTextStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="GorditaBold" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="HorizontalTextAlignment" Value="End" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
+        <Style x:Key="DetailHeaderStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="Gordita" />
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+            <Setter Property="TextTransform" Value="Uppercase" />
+            <Setter Property="FontSize" Value="11" />
+        </Style>
+
+        <Style x:Key="DetailContentStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="GorditaBold" />
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Margin" Value="0, 5, 0, 10" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        </Style>
+
+        <Style x:Key="DetailChartStyle" TargetType="microcharts:ChartView">
+            <Setter Property="Margin" Value="0, 10, 0, 5" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="HeightRequest" Value="150" />
+        </Style>
+
+        <Style x:Key="ExpanderHeaderLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="GorditaBold" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+        </Style>
+
+        <Style x:Key="ExpanderHeaderIconStyle" TargetType="Label" BasedOn="{StaticResource ExpanderHeaderLabelStyle}">
+            <Setter Property="FontFamily" Value="FAS" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+        </Style>
+
+        <Style x:Key="PickerStyle" TargetType="Picker">
+            <Setter Property="FontFamily" Value="Gordita" />
+            <Setter Property="HeightRequest" Value="50" />
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="Title" Value="Choose" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="Margin" Value="0,0,0,10" />
+        </Style>
+    </Application.Resources>
+</Application>

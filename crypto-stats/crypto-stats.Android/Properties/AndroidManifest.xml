@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="11" android:versionName="2.1" package="com.bolorundurowb.crypto_stats" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="29" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<application android:label="Crypto Stats" android:icon="@mipmap/ic_launcher">
+		<meta-data android:name="firebase_crashlytics_collection_enabled" android:value="true" />
+	</application>
+</manifest>

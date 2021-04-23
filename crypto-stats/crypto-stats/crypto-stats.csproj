@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>crypto_stats</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DebugType>pdbonly</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Acr.UserDialogs" Version="7.1.0.483" />
+        <PackageReference Include="Microcharts" Version="0.9.5.9" />
+        <PackageReference Include="System.Text.Json" Version="5.0.2" />
+        <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
+        <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+        <PackageReference Include="Microcharts.Forms" Version="0.9.5.9" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="ThemeResources\DarkTheme.xaml">
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="ThemeResources\LightTheme.xaml">
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Views\SettingsPage.xaml">
+        <SubType>Designer</SubType>
+        <Generator></Generator>
+      </EmbeddedResource>
+      <None Remove="Resources\Fonts\FASolid.otf" />
+      <EmbeddedResource Include="Resources\Fonts\FASolid.otf" />
+      <None Remove="Resources\Fonts\GorditaBold.otf" />
+      <EmbeddedResource Include="Resources\Fonts\GorditaBold.otf" />
+      <None Remove="Resources\Fonts\GorditaLight.otf" />
+      <None Remove="Resources\Fonts\Gordita.otf" />
+      <EmbeddedResource Include="Resources\Fonts\Gordita.otf" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\SettingsPage.xaml.cs">
+        <DependentUpon>SettingsPage.xaml</DependentUpon>
+      </Compile>
+    </ItemGroup>
+</Project>
