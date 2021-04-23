@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Globalization;
+using System.Linq;
 using crypto_stats.Models.Data;
 using crypto_stats.Models.Extensions;
 using crypto_stats.Services;
@@ -31,13 +32,41 @@ namespace crypto_stats.Views
             var entries = extendedHistory.GetOrdered()
                 .Select(x =>
                 {
+                    var positiveColour = SKColor.Parse(Constants.PositiveColour);
                     float.TryParse(x.PriceUsd, out var price);
                     return new ChartEntry(price)
                     {
-                        Color = SKColor.Parse(Constants.PositiveColour)
+                        Color = positiveColour,
+                        Label = price.ToString(CultureInfo.InvariantCulture),
                     };
                 })
                 .ToArray();
+            
+            // keep this for when we need to show different charts
+            // var extendedHistory = await _service.GetExtendedHistoryAsync(_crypto.Id);
+            // var orderedHistory = extendedHistory.GetOrdered().ToList();
+            // var entries = orderedHistory
+            //     .Select((x, index) =>
+            //     {
+            //         float.TryParse(x.PriceUsd, out var currentPrice);
+            //         var colour = SKColor.Parse(Constants.PositiveColour);
+            //
+            //         if (index > 0)
+            //         {
+            //             float.TryParse(orderedHistory[index - 1].PriceUsd, out var previousPrice);
+            //
+            //             if (currentPrice < previousPrice)
+            //             {
+            //                 colour = SKColor.Parse(Constants.NegativeColour);
+            //             }
+            //         }
+            //
+            //         return new ChartEntry(currentPrice)
+            //         {
+            //             Color = colour
+            //         };
+            //     })
+            //     .ToArray();
 
             var chart = new LineChart
             {
@@ -46,8 +75,9 @@ namespace crypto_stats.Views
                     SKColor.Parse(ThemeManager.CurrentTheme() == ThemeManager.Themes.Dark
                         ? Constants.DarkBackgroundColour
                         : Constants.LightBackgroundColour),
-                LineSize = 6,
-                PointSize = 10
+                LineSize = 5,
+                PointSize = 7.5f,
+                
             };
             chrtTrend.Chart = chart;
         }

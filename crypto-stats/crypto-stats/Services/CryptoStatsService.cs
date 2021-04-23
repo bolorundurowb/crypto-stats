@@ -1,7 +1,9 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using crypto_stats.Models.Data;
+using crypto_stats.Utils.Extensions;
 
 namespace crypto_stats.Services
 {
@@ -27,9 +29,13 @@ namespace crypto_stats.Services
             return await JsonSerializer.DeserializeAsync<DataCollection<PricePoint>>(response, DeserializerOptions);
         }
 
-        public async Task<DataCollection<PricePoint>> GetExtendedHistoryAsync(string id)
+        public async Task<DataCollection<PricePoint>> GetExtendedHistoryAsync(string id, int intervalInMinutes = 24 * 60)
         {
-            var response = await Client.GetStreamAsync($"https://api.coincap.io/v2/assets/{id}/history?interval=m15");
+            var endDate = DateTime.Now;
+            var startDate = (endDate - TimeSpan.FromMinutes(intervalInMinutes));
+            var start = startDate.ToUnixTimeStamp();
+            var end = endDate.ToUnixTimeStamp();
+            var response = await Client.GetStreamAsync($"https://api.coincap.io/v2/assets/{id}/history?interval=h6&start={start}&end={end}");
             return await JsonSerializer.DeserializeAsync<DataCollection<PricePoint>>(response, DeserializerOptions);
         }
     }
