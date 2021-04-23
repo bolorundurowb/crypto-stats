@@ -50,7 +50,7 @@ namespace crypto_stats.Views
                     return new ChartEntry(currentPrice)
                     {
                         Color = colour,
-                        Label = x.Time.FromUnixTimeStamp().ToString("d M yy h:mm"),
+                        Label = x.Time.FromUnixTimeStamp().ToString("dd MMM, h:mm"),
                         ValueLabelColor = colour,
                         ValueLabel = currentPrice.ToString(CultureInfo.InvariantCulture)
                     };
