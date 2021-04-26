@@ -159,11 +159,11 @@
                     HorizontalOptions="Fill"
                     Orientation="Vertical">
                     <Label
-                        Text="Refresh Frequency"
+                        Text="About Crypto Stats"
                         Style="{StaticResource DetailHeaderStyle}" />
-                    <Picker ItemDisplayBinding="{Binding Name}"
-                            Style="{StaticResource PickerStyle}"
-                            SelectedIndexChanged="ChangeRefreshFrequency" />
+                    <Label
+                        Text="About Crypto Stats"
+                        Style="{StaticResource DetailTextStyle}" />
                 </StackLayout>
             </views:Expander>
         </StackLayout>
