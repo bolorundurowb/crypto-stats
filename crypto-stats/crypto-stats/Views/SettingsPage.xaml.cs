@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Linq;
-using crypto_stats.Models.View;
 using crypto_stats.Utils;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -24,6 +23,9 @@ namespace crypto_stats.Views
             base.OnAppearing();
             cmbTheme.SelectedIndex = GetCurrentThemeIndex();
             cmbRefreshFreq.SelectedIndex = SyncManager.GetIndexOfSyncSelection();
+            
+            // set the version details
+            lblAppVersion.Text = AppInfo.VersionString;
         }
 
         private void ChangeTheme(object sender, EventArgs e)
