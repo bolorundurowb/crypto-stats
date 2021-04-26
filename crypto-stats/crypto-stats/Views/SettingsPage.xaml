@@ -155,18 +155,33 @@
                     </Grid>
                 </views:Expander.Header>
                 <StackLayout
-                    Margin="0, 10, 0, 0"
                     HorizontalOptions="Fill"
                     Orientation="Vertical">
-                    <Label
-                        Text="About Crypto Stats"
-                        Style="{StaticResource DetailHeaderStyle}" />
-                    <Label
-                        Text="There are a million and one crypto applications out there and sadly, Crypto Stats is not really much different but it does accomplish it's purpose. 
+                    <StackLayout
+                        Margin="0, 10, 0, 0"
+                        HorizontalOptions="Fill"
+                        Orientation="Vertical">
+                        <Label
+                            Text="App Version"
+                            Style="{StaticResource DetailHeaderStyle}" />
+                        <Label x:Name="lblAppVersion"
+                               Style="{StaticResource DetailTextStyle}" />
+                    </StackLayout>
+                    <StackLayout
+                        Margin="0, 10, 0, 0"
+                        HorizontalOptions="Fill"
+                        Orientation="Vertical">
+                        <Label
+                            Text="About Crypto Stats"
+                            Style="{StaticResource DetailHeaderStyle}" />
+                        <Label
+                            Text="There are a million and one crypto applications out there and sadly, Crypto Stats is not really much different but it does accomplish it's purpose. 
                         Crypto Stats was created as an avenue for me to show techniques and processes I have learnt working with Xamarin Forms.
                         Thanks to Coin Cap for the API."
-                        Style="{StaticResource DetailTextStyle}" />
+                            Style="{StaticResource DetailTextStyle}" />
+                    </StackLayout>
                 </StackLayout>
+               
             </views:Expander>
         </StackLayout>
     </ContentPage.Content>
