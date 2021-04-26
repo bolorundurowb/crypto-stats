@@ -47,7 +47,7 @@ namespace crypto_stats.Services
                 .WaitAndRetryAsync
                 (
                     3,
-                    retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)),
+                    retryAttempt => TimeSpan.FromSeconds(Math.Pow(3, retryAttempt)),
                     (ex, time) => { Toasts.DisplayError("An error occurred while retrieving data. Retrying..."); }
                 )
                 .ExecuteAsync(async () => await PullDataAsync<T>(url));
