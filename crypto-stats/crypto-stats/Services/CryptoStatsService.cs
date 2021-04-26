@@ -1,7 +1,12 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using crypto_stats.Models.Data;
+using crypto_stats.Models.Extensions;
+using crypto_stats.Utils;
+using crypto_stats.Utils.Extensions;
+using Polly;
 
 namespace crypto_stats.Services
 {
@@ -17,20 +22,35 @@ namespace crypto_stats.Services
 
         public async Task<DataCollection<Crypto>> GetAllStatsAsync()
         {
-            var response = await Client.GetStreamAsync(ApiUrl);
-            return await JsonSerializer.DeserializeAsync<DataCollection<Crypto>>(response, DeserializerOptions);
+            return await PullDataWithRetriesAsync<DataCollection<Crypto>>(ApiUrl);
         }
 
-        public async Task<DataCollection<PricePoint>> GetHistoryAsync(string id)
+        public async Task<DataCollection<PricePoint>> GetExtendedHistoryAsync(string id,
+            int intervalInMinutes = 24 * 60)
         {
-            var response = await Client.GetStreamAsync($"https://api.coincap.io/v2/assets/{id}/history?interval=m1");
-            return await JsonSerializer.DeserializeAsync<DataCollection<PricePoint>>(response, DeserializerOptions);
+            var endDate = DateTime.Now;
+            var startDate = endDate - TimeSpan.FromMinutes(intervalInMinutes);
+            return await PullDataWithRetriesAsync<DataCollection<PricePoint>>(
+                $"https://api.coincap.io/v2/assets/{id}/history?interval=h2&start={startDate.ToUnixTimeStamp()}&end={endDate.ToUnixTimeStamp()}");
         }
 
-        public async Task<DataCollection<PricePoint>> GetExtendedHistoryAsync(string id)
+        private static async Task<T> PullDataAsync<T>(string url)
         {
-            var response = await Client.GetStreamAsync($"https://api.coincap.io/v2/assets/{id}/history?interval=m15");
-            return await JsonSerializer.DeserializeAsync<DataCollection<PricePoint>>(response, DeserializerOptions);
+            var response = await Client.GetStreamAsync(url);
+            return await JsonSerializer.DeserializeAsync<T>(response, DeserializerOptions);
+        }
+
+        private static async Task<T> PullDataWithRetriesAsync<T>(string url)
+        {
+            return await Policy
+                .Handle<Exception>(x => x.IsInternetConnectionException())
+                .WaitAndRetryAsync
+                (
+                    3,
+                    retryAttempt => TimeSpan.FromSeconds(Math.Pow(3, retryAttempt)),
+                    (ex, time) => { Toasts.DisplayError("An error occurred while retrieving data. Retrying..."); }
+                )
+                .ExecuteAsync(async () => await PullDataAsync<T>(url));
         }
     }
 }

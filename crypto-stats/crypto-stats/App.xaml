@@ -113,7 +113,7 @@
         <Style x:Key="DetailChartStyle" TargetType="microcharts:ChartView">
             <Setter Property="Margin" Value="0, 10, 0, 5" />
             <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-            <Setter Property="HeightRequest" Value="150" />
+            <Setter Property="HeightRequest" Value="250" />
         </Style>
 
         <Style x:Key="ExpanderHeaderLabelStyle" TargetType="Label">
