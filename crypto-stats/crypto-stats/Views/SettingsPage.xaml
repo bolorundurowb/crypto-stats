@@ -162,7 +162,9 @@
                         Text="About Crypto Stats"
                         Style="{StaticResource DetailHeaderStyle}" />
                     <Label
-                        Text="About Crypto Stats"
+                        Text="There are a million and one crypto applications out there and sadly, Crypto Stats is not really much different but it does accomplish it's purpose. 
+                        Crypto Stats was created as an avenue for me to show techniques and processes I have learnt working with Xamarin Forms.
+                        Thanks to Coin Cap for the API."
                         Style="{StaticResource DetailTextStyle}" />
                 </StackLayout>
             </views:Expander>

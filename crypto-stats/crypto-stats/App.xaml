@@ -143,7 +143,9 @@
         <Style x:Key="DetailTextStyle" TargetType="Label">
             <Setter Property="FontFamily" Value="Gordita" />
             <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
-            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="LineHeight" Value="2" />
+            <Setter Property="LineBreakMode" Value="WordWrap" />
         </Style>
     </Application.Resources>
 </Application>
