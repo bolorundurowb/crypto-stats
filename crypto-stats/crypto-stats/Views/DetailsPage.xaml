@@ -29,6 +29,7 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*" />
@@ -52,6 +53,18 @@
                         Grid.Column="1"
                         HorizontalOptions="FillAndExpand">
                         <Label
+                            Text="MARKET CAP (USD)"
+                            Style="{StaticResource DetailHeaderStyle}" />
+                        <Label
+                            Text="{Binding MarketCapInUsd, StringFormat='${0:N}'}"
+                            Style="{StaticResource DetailContentStyle}" />
+                    </StackLayout>
+
+                    <StackLayout
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        HorizontalOptions="FillAndExpand">
+                        <Label
                             Text="RANK"
                             Style="{StaticResource DetailHeaderStyle}" />
                         <Label
@@ -61,6 +74,18 @@
 
                     <StackLayout
                         Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalOptions="FillAndExpand">
+                        <Label
+                            Text="VOLUME TRADED (24HRS)"
+                            Style="{StaticResource DetailHeaderStyle}" />
+                        <Label
+                            Text="{Binding VolumeTradedLastTwentyFourHours, StringFormat='{0:N}'}"
+                            Style="{StaticResource DetailContentStyle}" />
+                    </StackLayout>
+
+                    <StackLayout
+                        Grid.Row="2"
                         Grid.Column="0"
                         HorizontalOptions="FillAndExpand">
                         <Label
@@ -72,8 +97,8 @@
                     </StackLayout>
 
                     <StackLayout
-                        Grid.Row="1"
-                        Grid.Column="1"
+                        Grid.Row="3"
+                        Grid.Column="0"
                         HorizontalOptions="FillAndExpand">
                         <Label
                             Text="PRICE CHANGE (24HRS)"
@@ -109,19 +134,9 @@
                     </StackLayout>
                 </Grid>
                 
-                <Label
-                    Text="MARKET CAP (USD)"
-                    Style="{StaticResource DetailHeaderStyle}" />
-                <Label
-                    Text="{Binding MarketCapInUsd, StringFormat='${0:N}'}"
-                    Style="{StaticResource DetailContentStyle}" />
+               
 
-                <Label
-                    Text="VOLUME TRADED (24HRS)"
-                    Style="{StaticResource DetailHeaderStyle}" />
-                <Label
-                    Text="{Binding VolumeTradedLastTwentyFourHours, StringFormat='{0:N}'}"
-                    Style="{StaticResource DetailContentStyle}" />
+                
 
                 <Label
                     Text="VOLUME WEIGHTED PRICE (USD, 24HRS)"
