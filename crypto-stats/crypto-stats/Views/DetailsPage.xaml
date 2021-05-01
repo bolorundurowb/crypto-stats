@@ -135,7 +135,7 @@
                 </Grid>
 
                 <Label
-                    Text="VOLUME WEIGHTED PRICE (USD, 24HRS)"
+                    Text="VOLUME WEIGHTED PRICE (24HRS)"
                     Style="{StaticResource DetailHeaderStyle}" />
                 <Label
                     Text="{Binding VolumeWeightedAveragePriceLastTwentyFourHours, StringFormat='${0:N}'}"
