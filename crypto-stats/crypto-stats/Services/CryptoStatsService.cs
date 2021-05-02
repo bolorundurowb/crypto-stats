@@ -34,6 +34,21 @@ namespace crypto_stats.Services
                 $"https://api.coincap.io/v2/assets/{id}/history?interval=h2&start={startDate.ToUnixTimeStamp()}&end={endDate.ToUnixTimeStamp()}");
         }
 
+        public  Task<DataCollection<PricePoint>> GetFifteenMinHistoryAsync(string assetId)
+        {
+            return GetAssetHistoryWithIntervals(assetId, TimeSpan.FromMinutes(15), "m1");
+        }
+
+        public  Task<DataCollection<PricePoint>> GetDaysHistoryAsync(string assetId)
+        {
+            return GetAssetHistoryWithIntervals(assetId, TimeSpan.FromDays(1), "h1");
+        }
+
+        public  Task<DataCollection<PricePoint>> GetWeekHistoryAsync(string assetId)
+        {
+            return GetAssetHistoryWithIntervals(assetId, TimeSpan.FromDays(7), "h6");
+        }
+
         private static async Task<T> PullDataAsync<T>(string url)
         {
             var response = await Client.GetStreamAsync(url);
@@ -51,6 +66,14 @@ namespace crypto_stats.Services
                     (ex, time) => { Toasts.DisplayError("An error occurred while retrieving data. Retrying..."); }
                 )
                 .ExecuteAsync(async () => await PullDataAsync<T>(url));
+        }
+
+        public async Task<DataCollection<PricePoint>> GetAssetHistoryWithIntervals(string assetId, TimeSpan period, string interval)
+        {
+            var endDate = DateTime.Now;
+            var startDate = endDate - period;
+            return await PullDataWithRetriesAsync<DataCollection<PricePoint>>(
+                $"https://api.coincap.io/v2/assets/{assetId}/history?interval={interval}&start={startDate.ToUnixTimeStamp()}&end={endDate.ToUnixTimeStamp()}");
         }
     }
 }
