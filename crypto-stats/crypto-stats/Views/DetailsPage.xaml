@@ -150,10 +150,10 @@
                             Label="5 Mins" />
                         <tabs:SegmentedTabItem
                             Style="{StaticResource SegmentedTabStyle}"
-                            Label="15 Mins" />
+                            Label="24 Hrs" />
                         <tabs:SegmentedTabItem
                             Style="{StaticResource SegmentedTabStyle}"
-                            Label="24 Hrs" />
+                            Label="7 Days" />
                     </tabs:TabHostView.Tabs>
                 </tabs:TabHostView>
 
