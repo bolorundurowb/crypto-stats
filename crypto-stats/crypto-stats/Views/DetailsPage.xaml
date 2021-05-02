@@ -53,7 +53,7 @@
                         Grid.Column="1"
                         HorizontalOptions="FillAndExpand">
                         <Label
-                            Text="MARKET CAP (USD)"
+                            Text="MARKET CAP"
                             Style="{StaticResource DetailHeaderStyle}" />
                         <Label
                             Text="{Binding MarketCapInUsd, StringFormat='${0:N}'}"
@@ -89,7 +89,7 @@
                         Grid.Column="0"
                         HorizontalOptions="FillAndExpand">
                         <Label
-                            Text="PRICE (USD)"
+                            Text="PRICE"
                             Style="{StaticResource DetailHeaderStyle}" />
                         <Label
                             Text="{Binding PriceInUsd, StringFormat='${0:N}'}"
@@ -126,7 +126,7 @@
                         Grid.Column="1"
                         HorizontalOptions="FillAndExpand">
                         <Label
-                            Text="MAX SUPPLY"
+                            Text="MAXIMUM SUPPLY"
                             Style="{StaticResource DetailHeaderStyle}" />
                         <Label
                             Text="{Binding MaxCoinSupply, StringFormat='{0:N}'}"
