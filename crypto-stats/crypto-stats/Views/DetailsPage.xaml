@@ -3,6 +3,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             xmlns:tabs="clr-namespace:Sharpnado.Tabs;assembly=Sharpnado.Tabs"
              x:Class="crypto_stats.Views.DetailsPage"
              Title="Details"
              Style="{StaticResource PageStyle}">
@@ -141,9 +142,20 @@
                     Text="{Binding VolumeWeightedAveragePriceLastTwentyFourHours, StringFormat='${0:N}'}"
                     Style="{StaticResource DetailContentStyle}" />
 
-                <Label
-                    Text="PERFORMANCE (LAST 15MIN)"
-                    Style="{StaticResource DetailHeaderStyle}" />
+                <tabs:TabHostView x:Name="TabHost"
+                                  Style="{StaticResource SegmentedTabHostStyle}">
+                    <tabs:TabHostView.Tabs>
+                        <tabs:SegmentedTabItem
+                            Style="{StaticResource SegmentedTabStyle}"
+                            Label="5 Mins" />
+                        <tabs:SegmentedTabItem
+                            Style="{StaticResource SegmentedTabStyle}"
+                            Label="15 Mins" />
+                        <tabs:SegmentedTabItem
+                            Style="{StaticResource SegmentedTabStyle}"
+                            Label="24 Hrs" />
+                    </tabs:TabHostView.Tabs>
+                </tabs:TabHostView>
 
                 <microcharts:ChartView x:Name="chrtTrend"
                                        Style="{StaticResource DetailChartStyle}" />
