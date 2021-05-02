@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 using crypto_stats.Models.Data;
 using crypto_stats.Models.Extensions;
 using crypto_stats.Services;
@@ -48,6 +49,11 @@ namespace crypto_stats.Views
         protected async void IntervalChanges(object sender, SelectedPositionChangedEventArgs e)
         {
             var selectedIndex = (int) e.SelectedPosition;
+            await LoadHistoryForIndex(selectedIndex);
+        }
+
+        private async Task LoadHistoryForIndex(int selectedIndex)
+        {
             DataCollection<PricePoint> entries = null;
 
             switch (selectedIndex)

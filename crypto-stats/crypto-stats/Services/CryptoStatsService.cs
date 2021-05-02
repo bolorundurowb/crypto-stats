@@ -25,17 +25,17 @@ namespace crypto_stats.Services
             return await PullDataWithRetriesAsync<DataCollection<Crypto>>(ApiUrl);
         }
 
-        public  Task<DataCollection<PricePoint>> GetFifteenMinHistoryAsync(string assetId)
+        public Task<DataCollection<PricePoint>> GetFifteenMinHistoryAsync(string assetId)
         {
             return GetAssetHistoryWithIntervals(assetId, TimeSpan.FromMinutes(15), "m1");
         }
 
-        public  Task<DataCollection<PricePoint>> GetDaysHistoryAsync(string assetId)
+        public Task<DataCollection<PricePoint>> GetDaysHistoryAsync(string assetId)
         {
             return GetAssetHistoryWithIntervals(assetId, TimeSpan.FromDays(1), "h1");
         }
 
-        public  Task<DataCollection<PricePoint>> GetWeekHistoryAsync(string assetId)
+        public Task<DataCollection<PricePoint>> GetWeekHistoryAsync(string assetId)
         {
             return GetAssetHistoryWithIntervals(assetId, TimeSpan.FromDays(7), "h6");
         }
@@ -59,12 +59,14 @@ namespace crypto_stats.Services
                 .ExecuteAsync(async () => await PullDataAsync<T>(url));
         }
 
-        private async Task<DataCollection<PricePoint>> GetAssetHistoryWithIntervals(string assetId, TimeSpan period, string interval)
+        private async Task<DataCollection<PricePoint>> GetAssetHistoryWithIntervals(string assetId, TimeSpan period,
+            string interval)
         {
-            var endDate = DateTime.Now;
+            var endDate = DateTime.UtcNow;
             var startDate = endDate - period;
-            return await PullDataWithRetriesAsync<DataCollection<PricePoint>>(
-                $"https://api.coincap.io/v2/assets/{assetId}/history?interval={interval}&start={startDate.ToUnixTimeStamp()}&end={endDate.ToUnixTimeStamp()}");
+            var url =
+                $"https://api.coincap.io/v2/assets/{assetId}/history?interval={interval}&start={startDate.ToUnixTimeStamp()}&end={endDate.ToUnixTimeStamp()}";
+            return await PullDataWithRetriesAsync<DataCollection<PricePoint>>(url);
         }
     }
 }
