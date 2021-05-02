@@ -25,15 +25,6 @@ namespace crypto_stats.Services
             return await PullDataWithRetriesAsync<DataCollection<Crypto>>(ApiUrl);
         }
 
-        public async Task<DataCollection<PricePoint>> GetExtendedHistoryAsync(string id,
-            int intervalInMinutes = 24 * 60)
-        {
-            var endDate = DateTime.Now;
-            var startDate = endDate - TimeSpan.FromMinutes(intervalInMinutes);
-            return await PullDataWithRetriesAsync<DataCollection<PricePoint>>(
-                $"https://api.coincap.io/v2/assets/{id}/history?interval=h2&start={startDate.ToUnixTimeStamp()}&end={endDate.ToUnixTimeStamp()}");
-        }
-
         public  Task<DataCollection<PricePoint>> GetFifteenMinHistoryAsync(string assetId)
         {
             return GetAssetHistoryWithIntervals(assetId, TimeSpan.FromMinutes(15), "m1");
@@ -68,7 +59,7 @@ namespace crypto_stats.Services
                 .ExecuteAsync(async () => await PullDataAsync<T>(url));
         }
 
-        public async Task<DataCollection<PricePoint>> GetAssetHistoryWithIntervals(string assetId, TimeSpan period, string interval)
+        private async Task<DataCollection<PricePoint>> GetAssetHistoryWithIntervals(string assetId, TimeSpan period, string interval)
         {
             var endDate = DateTime.Now;
             var startDate = endDate - period;

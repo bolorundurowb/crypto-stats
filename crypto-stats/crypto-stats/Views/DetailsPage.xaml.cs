@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using crypto_stats.Models.Data;
 using crypto_stats.Models.Extensions;
@@ -27,26 +28,68 @@ namespace crypto_stats.Views
         protected override async void OnAppearing()
         {
             BindingContext = _crypto;
-            
-            // pull and display trends
-            var extendedHistory = await _service.GetExtendedHistoryAsync(_crypto.Id);
-            var orderedHistory = extendedHistory.GetOrdered().ToList();
-            var entries = orderedHistory
+
+            // instantiate and render chart details
+            var chart = new LineChart
+            {
+                BackgroundColor =
+                    SKColor.Parse(ThemeManager.CurrentTheme() == ThemeManager.Themes.Dark
+                        ? Constants.DarkBackgroundColour
+                        : Constants.LightBackgroundColour),
+                LineSize = 5,
+                PointSize = 7.5f,
+            };
+            chrtTrend.Chart = chart;
+
+            // initialize the tab  state
+            tabInterval.SelectedIndex = 0;
+        }
+
+        protected async void IntervalChanges(object sender, SelectedPositionChangedEventArgs e)
+        {
+            var selectedIndex = (int) e.SelectedPosition;
+            DataCollection<PricePoint> entries = null;
+
+            switch (selectedIndex)
+            {
+                case 0:
+                    entries = await _service.GetFifteenMinHistoryAsync(_crypto.Id);
+                    break;
+                case 1:
+                    entries = await _service.GetDaysHistoryAsync(_crypto.Id);
+                    break;
+                case 2:
+                    entries = await _service.GetWeekHistoryAsync(_crypto.Id);
+                    break;
+            }
+
+            WriteDataToChart(entries?.GetOrdered());
+        }
+
+        private void WriteDataToChart(IEnumerable<PricePoint> prices)
+        {
+            if (prices == null)
+            {
+                return;
+            }
+
+            var history = prices.ToList();
+            var entries = history
                 .Select((x, index) =>
                 {
                     float.TryParse(x.PriceUsd, out var currentPrice);
                     var colour = SKColor.Parse(Constants.PositiveColour);
-            
+
                     if (index > 0)
                     {
-                        float.TryParse(orderedHistory[index - 1].PriceUsd, out var previousPrice);
-            
+                        float.TryParse(history[index - 1].PriceUsd, out var previousPrice);
+
                         if (currentPrice < previousPrice)
                         {
                             colour = SKColor.Parse(Constants.NegativeColour);
                         }
                     }
-            
+
                     return new ChartEntry(currentPrice)
                     {
                         Color = colour,
@@ -57,18 +100,7 @@ namespace crypto_stats.Views
                 })
                 .ToArray();
 
-            var chart = new LineChart
-            {
-                Entries = entries,
-                BackgroundColor =
-                    SKColor.Parse(ThemeManager.CurrentTheme() == ThemeManager.Themes.Dark
-                        ? Constants.DarkBackgroundColour
-                        : Constants.LightBackgroundColour),
-                LineSize = 5,
-                PointSize = 7.5f,
-                
-            };
-            chrtTrend.Chart = chart;
+            chrtTrend.Chart.Entries = entries;
         }
     }
 }

@@ -142,8 +142,9 @@
                     Text="{Binding VolumeWeightedAveragePriceLastTwentyFourHours, StringFormat='${0:N}'}"
                     Style="{StaticResource DetailContentStyle}" />
 
-                <tabs:TabHostView x:Name="TabHost"
-                                  Style="{StaticResource SegmentedTabHostStyle}">
+                <tabs:TabHostView x:Name="tabInterval"
+                                  Style="{StaticResource SegmentedTabHostStyle}"
+                                  SelectedTabIndexChanged="IntervalChanges">
                     <tabs:TabHostView.Tabs>
                         <tabs:SegmentedTabItem
                             Style="{StaticResource SegmentedTabStyle}"
