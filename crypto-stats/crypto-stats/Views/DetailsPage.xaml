@@ -3,6 +3,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             xmlns:tabs="clr-namespace:Sharpnado.Tabs;assembly=Sharpnado.Tabs"
              x:Class="crypto_stats.Views.DetailsPage"
              Title="Details"
              Style="{StaticResource PageStyle}">
@@ -53,7 +54,7 @@
                         Grid.Column="1"
                         HorizontalOptions="FillAndExpand">
                         <Label
-                            Text="MARKET CAP (USD)"
+                            Text="MARKET CAP"
                             Style="{StaticResource DetailHeaderStyle}" />
                         <Label
                             Text="{Binding MarketCapInUsd, StringFormat='${0:N}'}"
@@ -89,7 +90,7 @@
                         Grid.Column="0"
                         HorizontalOptions="FillAndExpand">
                         <Label
-                            Text="PRICE (USD)"
+                            Text="PRICE"
                             Style="{StaticResource DetailHeaderStyle}" />
                         <Label
                             Text="{Binding PriceInUsd, StringFormat='${0:N}'}"
@@ -126,7 +127,7 @@
                         Grid.Column="1"
                         HorizontalOptions="FillAndExpand">
                         <Label
-                            Text="MAX SUPPLY"
+                            Text="MAXIMUM SUPPLY"
                             Style="{StaticResource DetailHeaderStyle}" />
                         <Label
                             Text="{Binding MaxCoinSupply, StringFormat='{0:N}'}"
@@ -141,9 +142,21 @@
                     Text="{Binding VolumeWeightedAveragePriceLastTwentyFourHours, StringFormat='${0:N}'}"
                     Style="{StaticResource DetailContentStyle}" />
 
-                <Label
-                    Text="PERFORMANCE (LAST 15MIN)"
-                    Style="{StaticResource DetailHeaderStyle}" />
+                <tabs:TabHostView x:Name="tabInterval"
+                                  Style="{StaticResource SegmentedTabHostStyle}"
+                                  SelectedTabIndexChanged="IntervalChanges">
+                    <tabs:TabHostView.Tabs>
+                        <tabs:SegmentedTabItem
+                            Style="{StaticResource SegmentedTabStyle}"
+                            Label="15 Mins" />
+                        <tabs:SegmentedTabItem
+                            Style="{StaticResource SegmentedTabStyle}"
+                            Label="24 Hrs" />
+                        <tabs:SegmentedTabItem
+                            Style="{StaticResource SegmentedTabStyle}"
+                            Label="7 Days" />
+                    </tabs:TabHostView.Tabs>
+                </tabs:TabHostView>
 
                 <microcharts:ChartView x:Name="chrtTrend"
                                        Style="{StaticResource DetailChartStyle}" />

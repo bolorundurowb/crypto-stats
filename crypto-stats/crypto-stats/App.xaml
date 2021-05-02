@@ -3,6 +3,7 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             xmlns:tabs="clr-namespace:Sharpnado.Tabs;assembly=Sharpnado.Tabs"
              x:Class="crypto_stats.App">
     <Application.Resources>
         <ResourceDictionary Source="ThemeResources/DarkTheme.xaml" />
@@ -111,7 +112,7 @@
         </Style>
 
         <Style x:Key="DetailChartStyle" TargetType="microcharts:ChartView">
-            <Setter Property="Margin" Value="0, 10, 0, 5" />
+            <Setter Property="Margin" Value="0, 15, 0, 5" />
             <Setter Property="HorizontalOptions" Value="FillAndExpand" />
             <Setter Property="HeightRequest" Value="250" />
         </Style>
@@ -146,6 +147,27 @@
             <Setter Property="FontSize" Value="15" />
             <Setter Property="LineHeight" Value="2" />
             <Setter Property="LineBreakMode" Value="WordWrap" />
+        </Style>
+
+        <Style x:Key="SegmentedTabHostStyle" TargetType="tabs:TabHostView">
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="Margin" Value="30, 15, 30, 0" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
+            <Setter Property="CornerRadius" Value="20" />
+            <Setter Property="IsSegmented" Value="True" />
+            <Setter Property="SegmentedHasSeparator" Value="True" />
+            <Setter Property="TabType" Value="Fixed" />
+            <Setter Property="SegmentedOutlineColor" Value="{DynamicResource PrimaryColor}" />
+        </Style>
+
+        <Style x:Key="SegmentedTabStyle" TargetType="tabs:SegmentedTabItem">
+            <Setter Property="FontFamily" Value="Gordita" />
+            <Setter Property="LabelSize" Value="14" />
+            <Setter Property="UnselectedLabelColor" Value="{DynamicResource PrimaryColor}" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="SelectedTabColor" Value="{DynamicResource PrimaryColor}" />
+            <Setter Property="SelectedLabelColor" Value="{DynamicResource PageBackgroundColor}" />
         </Style>
     </Application.Resources>
 </Application>

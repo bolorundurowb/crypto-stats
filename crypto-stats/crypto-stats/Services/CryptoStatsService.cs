@@ -25,13 +25,19 @@ namespace crypto_stats.Services
             return await PullDataWithRetriesAsync<DataCollection<Crypto>>(ApiUrl);
         }
 
-        public async Task<DataCollection<PricePoint>> GetExtendedHistoryAsync(string id,
-            int intervalInMinutes = 24 * 60)
+        public Task<DataCollection<PricePoint>> GetFifteenMinHistoryAsync(string assetId)
         {
-            var endDate = DateTime.Now;
-            var startDate = endDate - TimeSpan.FromMinutes(intervalInMinutes);
-            return await PullDataWithRetriesAsync<DataCollection<PricePoint>>(
-                $"https://api.coincap.io/v2/assets/{id}/history?interval=h2&start={startDate.ToUnixTimeStamp()}&end={endDate.ToUnixTimeStamp()}");
+            return GetAssetHistoryWithIntervals(assetId, TimeSpan.FromMinutes(15), "m1");
+        }
+
+        public Task<DataCollection<PricePoint>> GetDaysHistoryAsync(string assetId)
+        {
+            return GetAssetHistoryWithIntervals(assetId, TimeSpan.FromDays(1), "h1");
+        }
+
+        public Task<DataCollection<PricePoint>> GetWeekHistoryAsync(string assetId)
+        {
+            return GetAssetHistoryWithIntervals(assetId, TimeSpan.FromDays(7), "h6");
         }
 
         private static async Task<T> PullDataAsync<T>(string url)
@@ -51,6 +57,16 @@ namespace crypto_stats.Services
                     (ex, time) => { Toasts.DisplayError("An error occurred while retrieving data. Retrying..."); }
                 )
                 .ExecuteAsync(async () => await PullDataAsync<T>(url));
+        }
+
+        private async Task<DataCollection<PricePoint>> GetAssetHistoryWithIntervals(string assetId, TimeSpan period,
+            string interval)
+        {
+            var endDate = DateTime.UtcNow;
+            var startDate = endDate - period;
+            var url =
+                $"https://api.coincap.io/v2/assets/{assetId}/history?interval={interval}&start={startDate.ToUnixTimeStamp()}&end={endDate.ToUnixTimeStamp()}";
+            return await PullDataWithRetriesAsync<DataCollection<PricePoint>>(url);
         }
     }
 }
